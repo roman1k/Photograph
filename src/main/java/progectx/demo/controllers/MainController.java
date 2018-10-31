@@ -28,11 +28,21 @@ public class MainController  {
     }
 
 
-    @GetMapping("/login")
-    public String login(Model model){
-        System.out.println("login");
+
+
+    @GetMapping("/login/{Photograph}")
+    public String loginPhotograph(Model model){
+
         return "login";
     }
+
+
+    @GetMapping("/login/{Costumer}")
+    public String loginCostumer(){
+
+        return "login";
+    }
+
     @GetMapping("/main")
     public String main(Model model){
         System.out.println("main");
