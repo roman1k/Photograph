@@ -27,10 +27,7 @@ public class MainController  {
         return "PhotographSettings";
     }
 
-    @GetMapping("/savePhotographer_")
-    public String savePhotographer_(@ResponseBody String type){
-        return "PhotographSettings";
-    }
+
 
 
     @GetMapping("/login")
