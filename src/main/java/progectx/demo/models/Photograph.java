@@ -12,9 +12,9 @@ import javax.persistence.Id;
 public class Photograph extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private  int id;
     private  String name;
-    private String lastName;
+    private  String lastName;
     private  int age;
     @Enumerated(EnumType.STRING)
     @ElementCollection
@@ -22,12 +22,8 @@ public class Photograph extends User {
     private  Contact contact;
     private  List<Gallary> gallareis;
     private  String describe;
-    private int price;
-    private Rating rating;
+    private  int price;
+    private  Rating rating;
     private  String hashTag;
-
-
-
-
 }
 
