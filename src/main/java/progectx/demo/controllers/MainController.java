@@ -30,8 +30,8 @@ public class MainController  {
 
     @GetMapping("/login")
     public String login(Model model){
-        System.out.println("login");
-        return "login";
+            System.out.println("login");
+            return "login";
     }
     @GetMapping("/main")
     public String main(Model model){
