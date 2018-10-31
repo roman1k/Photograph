@@ -6,12 +6,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import progectx.demo.DAO.PhotographDAO;
+import progectx.demo.models.Photograph;
 
 @Controller
 public class MainController  {
 
     @Autowired
-    private ContactDAO contactDAO;
+    private PhotographDAO photographDAO;
 
     @GetMapping("/")
     public String index(Model model){
@@ -28,8 +30,8 @@ public class MainController  {
 
     @GetMapping("/login")
     public String login(Model model){
-        System.out.println("login");
-        return "login";
+            System.out.println("login");
+            return "login";
     }
     @GetMapping("/main")
     public String main(Model model){
