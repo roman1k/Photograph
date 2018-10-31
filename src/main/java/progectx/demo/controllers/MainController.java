@@ -27,6 +27,8 @@ public class MainController  {
         return "PhotographSettings";
     }
 
+
+
     @GetMapping("/login")
     public String login(Model model){
             System.out.println("login");
