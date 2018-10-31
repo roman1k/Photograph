@@ -28,8 +28,6 @@ public class MainController  {
     }
 
 
-
-
     @GetMapping("/login")
     public String login(Model model){
         System.out.println("login");
