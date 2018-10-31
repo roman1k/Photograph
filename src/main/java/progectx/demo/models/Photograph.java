@@ -9,13 +9,15 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class Photograph {
+public class Photograph extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private  String name;
     private String lastName;
     private  int age;
+    @Enumerated(EnumType.STRING)
+    @ElementCollection
     private  Sex sex;
     private  Contact contact;
     private  List<Gallary> gallareis;
