@@ -31,7 +31,13 @@ public class MainController  {
 
 
     @GetMapping("/login")
-    public String login(Model model){
+    public String login( String type){
+        if(type == "U"){
+
+        }
+        else{
+
+        }
         System.out.println("login");
         return "login";
     }
