@@ -28,8 +28,8 @@ public class MainController  {
     }
 
     @GetMapping("/login")
-    public String login(Model model){
-            System.out.println("login");
+    public String login(Model model)
+    {
             return "login";
     }
 
@@ -50,11 +50,6 @@ public class MainController  {
 
         return "index";
     }
-
-
-
-
-
 
 
 }
