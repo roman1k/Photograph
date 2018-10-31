@@ -1,5 +1,7 @@
 package progectx.demo.models;
 
+import org.springframework.security.core.userdetails.UserDetails;
+
 public class Contact
 {
     //default
