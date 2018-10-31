@@ -15,7 +15,7 @@
     $("savePhotograph").click(function () {
         let type = "P";
         $.ajax({
-            url: '/login',
+            url: '/login/ + ${Photograph}',
             type: 'Get',
             // contentType:    що тут?
             data: JSON.stringify({type})
@@ -25,7 +25,7 @@
     $("saveUser").click(function () {
         let type = "U";
         $.ajax({
-            url: '/login',
+            url: '/login + ${Costumer}',
             type: 'Get',
            // contentType:    що тут?
             data: JSON.stringify({type})

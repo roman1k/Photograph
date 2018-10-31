@@ -30,17 +30,19 @@ public class MainController  {
 
 
 
-    @GetMapping("/login")
-    public String login( String type){
-        if(type == "U"){
+    @GetMapping("/login/{Photograph}")
+    public String loginPhotograph(Model model){
 
-        }
-        else{
-
-        }
-        System.out.println("login");
         return "login";
     }
+
+
+    @GetMapping("/login/{Costumer}")
+    public String loginCostumer(){
+
+        return "login";
+    }
+
     @GetMapping("/main")
     public String main(Model model){
         System.out.println("main");
