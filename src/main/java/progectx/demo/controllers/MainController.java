@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MainController  {
@@ -27,17 +26,8 @@ public class MainController  {
         return "PhotographSettings";
     }
 
-
-
-
     @GetMapping("/login")
-    public String login( String type){
-        if(type == "U"){
-
-        }
-        else{
-
-        }
+    public String login(Model model){
         System.out.println("login");
         return "login";
     }
