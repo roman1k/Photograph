@@ -7,7 +7,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -15,15 +14,12 @@ import java.util.List;
 
 @Entity
 @Data
-public class Customer extends User implements UserDetails {
+public class Admin  extends  User implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private  String name;
-    private String lastName;
-    private  Contact contact;
-    private int age;
-    private Role role = Role.ROLE_Photograph;
+    @GeneratedValue()
+    private  int Id;
+    private String name;
+    private Role role = Role.ROLE_Admin;
 
 
     @Override
@@ -34,13 +30,10 @@ public class Customer extends User implements UserDetails {
     }
 
 
-
     @Override
     public String getUsername() {
         return name;
     }
-
-
 
 
 
@@ -67,7 +60,6 @@ public class Customer extends User implements UserDetails {
 
 
 
-
     private boolean credentialsNonExpired = true;
 
     public void setCredentialsNonExpired(boolean credentialsNonExpired) {
@@ -79,8 +71,6 @@ public class Customer extends User implements UserDetails {
     }
 
 
-
-
     private boolean enabled = true;
 
     public void setEnabled(boolean enabled) {
@@ -90,9 +80,6 @@ public class Customer extends User implements UserDetails {
     public boolean isEnabled() {
         return enabled;
     }
-
-
-
 
 
 }
