@@ -16,6 +16,7 @@ public class Photograph extends User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(unique = true)//щоб юзернейм був різний
     private String name;
     private String lastName;
     private int age;
