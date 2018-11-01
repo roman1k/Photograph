@@ -1,13 +1,14 @@
 package progectx.demo.services;
 
+import progectx.demo.models.Admin;
 import progectx.demo.models.Customer;
 
 import java.util.List;
 
 public interface AdminService {
-    void save(Customer user);
+    void save(Admin admin);
 
-    List<Customer> findAll();
+    List<Admin> findAll();
 
-    Customer findOneById(int id);
+    Admin findOneById(int id);
 }
