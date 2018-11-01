@@ -8,9 +8,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import progectx.demo.DAO.CustomerDAO;
+import progectx.demo.DAO.PhotographDAO;
+import progectx.demo.models.Customer;
+import progectx.demo.models.Photograph;
+import progectx.demo.services.CustomerService;
 
 @Controller
 public class MainController  {
+
+    @Autowired
+    CustomerDAO customerDAO;
+
+    @Autowired
+    PhotographDAO photographDAO;
 
 
     @GetMapping("/")
@@ -71,11 +82,25 @@ public class MainController  {
     }
 
 
-    @PostMapping("/save")
-    public String save(){
-        return "";
+
+
+
+    @PostMapping("/saveCustomer")
+    public String saveCustomer(Customer customer){
+
+
+
+        customerDAO.save(customer);
+        return "login";
     }
 
+
+
+    @PostMapping("/savePhotographer")
+    public String savePhotographer(Photograph photograph){
+        photographDAO.save(photograph);
+        return "login";
+    }
 
 
 
