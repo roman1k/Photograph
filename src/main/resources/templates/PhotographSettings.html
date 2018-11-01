@@ -23,28 +23,54 @@
         <section>
             <option id="male">Male</option>
             <option id="female">Female</option>
+            <option id="anyone">Anyone</option>
         </section>
+    </div>
+    <div>
+        <input type="number" name="phone" placeholder="номер">
+    </div>
+    <div>
+        <input type="text" name="description" placeholder="опис">
+    </div>
+    <div>
+        <input type="number" name="price" placeholder="ціна за годину роботи">
+    </div>
+    <div>
+        <input type="text" name=" hashtag" placeholder="хештег">
     </div>
 </form>
 </body>
 
 <script>
-    function getSex() {
-        $("savePhotograph").click(function () {
-            let type = "P";
+    function sendSex() {
+
+        var type = "Male";
+            $("male").click(function () {
+                let type = "P";
+                $.ajax({
+                    url: '/PhotographProfile',
+                    type: 'Post',
+                    contentType: 'applications/json',
+                    data: JSON.stringify({type})
+                })
+
+            });
+        var type = "Female";
+        $("female").click(function () {
+            let type = "Anyone";
             $.ajax({
-                url: '/login',
-                type: 'Get',
-                contentType:'applications/json',
+                url: '/PhotographProfile',
+                type: 'Post',
+                contentType: 'applications/json',
                 data: JSON.stringify({type})
             })
-
-        });
-        $("saveUser").click(function () {
-            let type = "U";
+        })
+        var type = "Anyone";
+        $("anyone").click(function () {
+            let type = "Anyone";
             $.ajax({
-                url: '/login',
-                type: 'Get',
+                url: '/PhotographProfile',
+                type: 'Post',
                 contentType: 'applications/json',
                 data: JSON.stringify({type})
 
@@ -64,7 +90,6 @@
     }
 
     getYear();
-
-
+    sendSex();
 </script>
 </html>
