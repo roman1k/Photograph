@@ -11,9 +11,6 @@
 <button id="saveUser">user</button>
 
 
-
-
-
 </body>
 <script>
     $("savePhotograph").click(function () {
@@ -21,7 +18,6 @@
         $.ajax({
             url: '/login/Photograph',
             type: 'Get',
-            // contentType:    що тут?
             data: JSON.stringify({type})
         })
         
