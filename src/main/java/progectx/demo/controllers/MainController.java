@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import progectx.demo.DAO.AdminDAO;
+import progectx.demo.DAO.CustomerDAO;
 import progectx.demo.DAO.PhotographDAO;
 import progectx.demo.models.Photograph;
 
@@ -14,6 +16,12 @@ public class MainController  {
 
     @Autowired
     private PhotographDAO photographDAO;
+
+    @Autowired
+    private  AdminDAO adminDAO;
+
+    @Autowired
+    private CustomerDAO customerDAO;
 
     @GetMapping("/")
     public String index(Model model){
@@ -50,6 +58,12 @@ public class MainController  {
 
         return "index";
     }
+
+    @PostMapping("/uploadPhoto")
+    public  void uploadPhoto(){
+
+    }
+
 
 
 }

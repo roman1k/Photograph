@@ -1,4 +1,4 @@
 package progectx.demo.models;
 
-public class Gallary {
+public enum Gallary {
 }

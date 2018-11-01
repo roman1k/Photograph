@@ -1,6 +1,7 @@
 package progectx.demo.models;
 
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,23 +17,34 @@ public class Photograph extends User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(unique = true)//щоб юзернейм був різний
+
     private String name;
     private String lastName;
     private int age;
-    @Enumerated(EnumType.STRING)
-    @ElementCollection
-    private Sex sex;
+    private  Sex sex;
+
     private Contact contact;
-    private List<Gallary> gallareis;
+    private ArrayList<Gallary> gallareis;
     private String describe;
     private int price;
     private Rating rating;
     private String hashTag;
-private Role role = Role.ROLE_Photograph;
+    private Role role = Role.ROLE_Photograph;
+
+    public  Photograph(){
+
+    }
 
 
 
+    public Photograph(String name, String lastName, int age, Sex sex, Contact contact) {
+        this.name = name;
+        this.lastName = lastName;
+        this.age = age;
+        this.sex = sex;
+        this.contact = contact;
+
+    }
 
 
     @Override
