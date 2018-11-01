@@ -14,27 +14,27 @@ import java.util.List;
 
 @Service
 public class PhotographServiceImpl implements PhotographService, UserDetailsService {
-@Autowired
-    private PhotographDAO photographDAO;
+
+    @Autowired
+    private PhotographDAO customerDAO;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return photographDAO.findByUsername(username);
+        return null;
     }
 
 
     @Override
-    public void save(Photograph photograph) {
-        if (photograph!=null){
-            photographDAO.save(photograph);
+    public void save(Photograph customer) {
+        if (customer != null) {
+            customerDAO.save(customer);
         }
     }
 
-
     @Override
     public List<Photograph> findAll() {
-        List<Photograph> all = photographDAO.findAll();
-        if (all==null){
+        List<Photograph> all = customerDAO.findAll();
+        if (all == null) {
             return new ArrayList<>();
         }
         return all;

@@ -6,5 +6,5 @@ import progectx.demo.models.Customer;
 
 public interface CustomerDAO extends JpaRepository<Customer, Integer> {
 
-    UserDetails findByUsername(String username);
+
 }

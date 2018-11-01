@@ -12,14 +12,10 @@ import progectx.demo.services.CustomerService;
 import java.util.ArrayList;
 import java.util.List;
 @Service
-public class CustomerServiceImpl implements CustomerService,UserDetailsService {
+public class CustomerServiceImpl implements CustomerService {
    @Autowired
    private CustomerDAO customerDAO;
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return customerDAO.findByUsername(username);
-    }
 
 
 
@@ -42,6 +38,11 @@ public class CustomerServiceImpl implements CustomerService,UserDetailsService {
 
         @Override
     public Customer findOneById(int id) {
+        return null;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         return null;
     }
 }

@@ -19,7 +19,7 @@ public class Admin  extends  User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int Id;
-    private String name;
+   public String name;
     private Role role = Role.ROLE_Admin;
 
 

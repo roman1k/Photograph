@@ -13,7 +13,7 @@ import progectx.demo.services.AdminService;
 import java.util.ArrayList;
 import java.util.List;
 @Service
-public class AdminServiceImpl implements AdminService,UserDetailsService {
+public class AdminServiceImpl implements AdminService{
 
     @Autowired
     private AdminDAO adminDAO;
@@ -50,7 +50,8 @@ public class AdminServiceImpl implements AdminService,UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        return adminDAO.findByUserName(name);
+    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+        return null;
     }
 }
+
