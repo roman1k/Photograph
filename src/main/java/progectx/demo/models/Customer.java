@@ -23,7 +23,7 @@ public class Customer extends User implements UserDetails {
     private String lastName;
     private  Contact contact;
     private int age;
-    private Role role = Role.ROLE_Photograph;
+    private Role role = Role.ROLE_Customer;
 
 
     @Override
@@ -90,9 +90,5 @@ public class Customer extends User implements UserDetails {
     public boolean isEnabled() {
         return enabled;
     }
-
-
-
-
 
 }
