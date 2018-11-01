@@ -5,6 +5,66 @@
     <title>$Title$</title>
 </head>
 <body>
-$END$
+
+<form id="regOFphotograph" th:action="/savePhotographer" method="post">
+    <div>
+        <input type = "file" name = "profileImage" placeholder="додати фото">
+    </div>
+    <div>
+        <input type="text" name="name" placeholder="ім'я">
+    </div>
+    <div>
+        <input type="text" name="lastname" placeholder="прізвище">
+    </div>
+    <div>
+        <select id="year"></select>
+    </div>
+    <div>
+        <section>
+            <option id="male">Male</option>
+            <option id="female">Female</option>
+        </section>
+    </div>
+</form>
 </body>
+
+<script>
+    function getSex() {
+        $("savePhotograph").click(function () {
+            let type = "P";
+            $.ajax({
+                url: '/login',
+                type: 'Get',
+                contentType:'applications/json',
+                data: JSON.stringify({type})
+            })
+
+        });
+        $("saveUser").click(function () {
+            let type = "U";
+            $.ajax({
+                url: '/login',
+                type: 'Get',
+                contentType: 'applications/json',
+                data: JSON.stringify({type})
+
+            })
+        })
+
+    }
+
+    function getYear() {
+        var start = 18;
+        var end = 120;
+        var options = "";
+        for(var year = start ; year <=end; year++){
+            options += "<option>"+ year +"</option>";
+        }
+        document.getElementById("year").innerHTML = options;
+    }
+
+    getYear();
+
+
+</script>
 </html>
