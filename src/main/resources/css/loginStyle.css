@@ -1,0 +1,62 @@
+.logInLogUpWindow{
+    margin-top: 200px;
+    border: #66b5af solid 1.2px;
+    background-color: #315569;
+    size: 100px;
+    color: snow;
+    text-align: center;
+}
+
+.logIn{
+    text-align: center;
+}
+
+.user_registration{
+    margin: 0 auto;
+    display:none;
+}
+
+.photograph_registration{
+
+}
+
+.submitSignIn:hover{
+    background-color: #f3f6f8;
+    color: #315569;
+}
+
+.submitSignIn{
+    margin-top: 4px;
+    border: 1px solid snow;
+    width: 70px;
+    height: 25px;
+    background-color:  #315569;
+    color: #bbc4ce;
+}
+
+li{
+    margin-top: 4px;
+    list-style-type: none;
+}
+
+input{
+    background-color: #f3f6f8;
+    color: black;
+}
+
+.content{
+}
+
+.active:hover{
+    display: none;
+}
+
+
+.collapsible1{
+
+}
+
+
+.collapsible2{
+
+}
