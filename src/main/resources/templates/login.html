@@ -17,29 +17,23 @@
 
 
 <form th:action="/saveCustomer" method="post">
-
     <div class="user_registration">
-    <ul>
-
-    <li><label th:for="first_name">First Name:</label></li>
-    <input type="text" name="name" placeholder="Enter first name" required>
-    <li><label th:for="surname">Surname:</label></li>
-    <input type="text" name="lastName" placeholder="Enter surname" required>
-    <li><label th:for="email">E-mail:</label></li>
-    <input type="email" name="email" placeholder="Enter E-mail" required>
-    <li><label th:for="login">Login:</label></li>
-    <input type="password" name="password" placeholder="Enter password" required>
-    <li><input type="password" name="password" placeholder="Enter password again" required></li>
-    <h3><li><input type="submit" name="Sign up!" value="Sign up"></li></h3>
-    </ul>
-
-
+        <ul>
+            <li><label th:for="first_name">First Name:</label></li>
+            <input type="text" name="name" placeholder="Enter first name" required>
+            <li><label th:for="surname">Surname:</label></li>
+            <input type="text" name="lastName" placeholder="Enter surname" required>
+            <li><label th:for="email">E-mail:</label></li>
+            <input type="email" name="email" placeholder="Enter E-mail" required>
+            <li><label th:for="login">Login:</label></li>
+            <input type="password" name="password" placeholder="Enter password" required>
+            <li><input type="password" name="password" placeholder="Enter password again" required></li>
+            <h3><li><input type="submit" name="Sign up!" value="Sign up"></li></h3>
+        </ul>
     </div>
-
 </form>
 
 <form th:action="/savePhotograph" method="post">
-
     <div class="photograph_registration">
         <ul>
             <li><label th:for="first_name">First Name:</label></li>
@@ -53,10 +47,7 @@
             <li><input type="password" name="password" placeholder="Enter password again" required></li>
             <h3><li><input type="submit" name="Sign up!" value="Sign up"></li></h3>
         </ul>
-
-
     </div>
-
 </form>
 
 
