@@ -1,7 +1,6 @@
 package progectx.demo.services;
 
 import progectx.demo.models.Admin;
-import progectx.demo.models.Customer;
 
 import java.util.List;
 

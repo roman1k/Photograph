@@ -1,18 +1,20 @@
 package progectx.demo.models;
 
+import lombok.Data;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Contact
-{
+@Data
+public class Contact {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String number;
-    private City city;
-    private String mail;
-    private String faceBook;
-    private String Instagram;
+    @ManyToOne
+    private  City city;
+    private  String mail;
+    private  String facebook;
+    private  String instagram;
+
 }

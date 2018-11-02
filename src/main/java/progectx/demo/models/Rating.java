@@ -13,10 +13,9 @@ public class Rating {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-     private int countOfLikes;
-     private int mark;
-     private  double averageOfRating;
+    private int idRating;
+    private  int countOfLikes;
+    private int mark;
+    private int averageOfRating;
 
 }

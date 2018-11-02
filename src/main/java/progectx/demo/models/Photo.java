@@ -9,10 +9,10 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class City {
+public class Photo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idCity;
-    private String nameCity;
+    private  int id;
+    private String namePhoto;
 
 }
