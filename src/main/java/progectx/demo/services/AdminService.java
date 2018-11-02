@@ -8,7 +8,9 @@ import java.util.List;
 public interface AdminService extends UserDetailsService {
     void save(Admin admin);
 
+
     List<Admin> findAll();
+
 
     Admin findOneById(int id);
 }

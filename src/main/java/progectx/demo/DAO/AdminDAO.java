@@ -7,4 +7,5 @@ import progectx.demo.models.Admin;
 public interface AdminDAO  extends JpaRepository<Admin, Integer> {
 
 
+
 }

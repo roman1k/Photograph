@@ -12,6 +12,7 @@ import progectx.demo.services.PhotographService;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Service
 public class PhotographServiceImpl implements PhotographService, UserDetailsService {
 

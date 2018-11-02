@@ -9,6 +9,7 @@ public interface PhotographService  extends UserDetailsService {
 
     void save(Photograph user);
 
+
     List<Photograph> findAll();
 
     Photograph findOneById(int id);
