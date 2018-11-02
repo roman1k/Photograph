@@ -3,20 +3,22 @@ package progectx.demo.models;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
 public class Customer extends UserLog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  int idCustomer;
+    private  int id;
     private String nameCustomer;
-    private String lastName;
-    private int age;
+    private String lastNameCustomer;
+    private int ageCustomer;
+    @OneToOne
+            (optional = false)
+    @JoinColumn(name="number", unique = true, nullable = false, updatable = false)
+    private Contact contact;
+
 
 
 

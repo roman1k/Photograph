@@ -19,7 +19,7 @@ public class Photograph extends UserLog{
     private  String description;
     @OneToOne
           (optional = false)
-    @JoinColumn(name="contact_id", unique = true, nullable = false, updatable = false)
+    @JoinColumn(name="number", unique = true, nullable = false, updatable = false)
     private Contact contact;
     @OneToMany
     private List<Gallary> gallaries;

@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Table(name = "contact")
 public class Contact {
     @Id
-    @Column (name="contact_id")
+    @Column (name="number")
     private String number;
     @ManyToOne
     private  City city;
@@ -22,6 +22,9 @@ public class Contact {
     @OneToOne
             (optional = false, mappedBy="contact")
     public Admin admin;
+    @OneToOne
+            (optional = false, mappedBy="contact")
+    public Customer customer;
 
 
 }
