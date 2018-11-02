@@ -5,12 +5,11 @@
     <title>$Title$</title>
 </head>
 <body>
-    <div class="LeftSideMainPage">
-        <button id="savePhotograph">photograph</button>
-    </div>
-    <div class="ReightSideMainPage">
-        <button id="saveUser">user</button>
-    </div>
+
+
+<button id="savePhotograph">photograph</button>
+<button id="saveUser">user</button>
+
 </body>
 <script>
     $("savePhotograph").click(function () {
@@ -18,7 +17,7 @@
         $.ajax({
             url: '/login',
             type: 'Get',
-            contentType:'applications/json',
+            // contentType:    що тут?
             data: JSON.stringify({type})
         })
         
@@ -28,7 +27,7 @@
         $.ajax({
             url: '/login',
             type: 'Get',
-            contentType: 'applications/json',
+           // contentType:    що тут?
             data: JSON.stringify({type})
 
         })
