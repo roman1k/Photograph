@@ -10,13 +10,15 @@ import java.util.List;
 @Table(name = "photograph")
 public class Photograph extends UserLog{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @OneToOne
+            (optional = false)
+    @JoinColumn(name="id", unique = true, nullable = false, updatable = false)
+    private UserLog userLog;
     private String namePhotograph;
     private  String lastNamePhotograph;
-    private  int age;
+    private  int agePhotograph;
     private  int price;
-    private  String description;
+    private  String descriptionPhotograph;
     @OneToOne
           (optional = false)
     @JoinColumn(name="number", unique = true, nullable = false, updatable = false)
@@ -27,6 +29,7 @@ public class Photograph extends UserLog{
     @OneToOne
     private Rating rating;
     private Sex sex;
+    private String avatar;
 
 
     }

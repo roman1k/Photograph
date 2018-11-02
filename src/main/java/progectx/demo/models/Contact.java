@@ -11,7 +11,7 @@ public class Contact {
     @Id
     @Column (name="number")
     private String number;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private  City city;
     private  String mail;
     private  String facebook;

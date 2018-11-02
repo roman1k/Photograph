@@ -13,7 +13,6 @@ import javax.persistence.Id;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public  abstract class UserLog {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
