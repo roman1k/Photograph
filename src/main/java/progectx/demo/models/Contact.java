@@ -19,5 +19,9 @@ public class Contact {
    @OneToOne
            (optional = false, mappedBy="contact")
    public Photograph photograph;
+    @OneToOne
+            (optional = false, mappedBy="contact")
+    public Admin admin;
+
 
 }

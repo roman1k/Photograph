@@ -14,7 +14,8 @@ public class Admin extends  UserLog {
     private  String nameAdmin;
 //    @ManyToOne
 //    private Role role = Role.ROLE_Admin;
-//    @OneToOne
-//    private Contact contact;
+    @OneToOne(optional = false)
+    @JoinColumn(name="contact_id", unique = true, nullable = false, updatable = false)
+    private Contact contact;
 
 }
