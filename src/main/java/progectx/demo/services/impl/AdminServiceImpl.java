@@ -7,7 +7,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import progectx.demo.DAO.AdminDAO;
 import progectx.demo.models.Admin;
-import progectx.demo.models.Customer;
 import progectx.demo.services.AdminService;
 
 import java.util.ArrayList;

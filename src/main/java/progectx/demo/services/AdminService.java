@@ -2,7 +2,6 @@ package progectx.demo.services;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 import progectx.demo.models.Admin;
-import progectx.demo.models.Customer;
 
 import java.util.List;
 

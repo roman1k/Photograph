@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import progectx.demo.DAO.AdminDAO;
 import progectx.demo.DAO.CustomerDAO;
 import progectx.demo.DAO.PhotographDAO;
-import progectx.demo.models.Photograph;
 
 @Controller
 public class MainController  {
