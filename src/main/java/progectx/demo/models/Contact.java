@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 @Data
@@ -16,5 +17,8 @@ public class Contact {
     private  String mail;
     private  String facebook;
     private  String instagram;
+//    @OneToOne
+//            (optional = false, mappedBy="Photograph")
+//    public Photograph photograph;
 
 }

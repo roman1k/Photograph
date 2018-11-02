@@ -7,6 +7,7 @@ import java.util.List;
 
 @Data
 @Entity
+//@Table(name = "Photograph")
 public class Photograph extends UserLog{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +18,8 @@ public class Photograph extends UserLog{
     private  int price;
     private  String description;
     @OneToOne
+//            (optional = false)
+//    @JoinColumn(name="contact_id", unique = true, nullable = false, updatable = false)
     private Contact contact;
     @OneToMany
     private List<Gallary> gallaries;
