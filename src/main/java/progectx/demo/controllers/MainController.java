@@ -14,6 +14,14 @@ public class MainController  {
     @Autowired
     private PhotographDAO photographDAO;
 
+    public PhotographDAO getPhotographDAO() {
+        return photographDAO;
+    }
+
+    public void setPhotographDAO(PhotographDAO photographDAO) {
+        this.photographDAO = photographDAO;
+    }
+
     @GetMapping("/")
     public String index(Model model){
         System.out.println("home");

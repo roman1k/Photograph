@@ -14,8 +14,17 @@ import java.util.List;
 
 @Service
 public class PhotographServiceImpl implements PhotographService, UserDetailsService {
-@Autowired
+
+ @Autowired
     private PhotographDAO photographDAO;
+
+    public PhotographDAO getPhotographDAO() {
+        return photographDAO;
+    }
+
+    public void setPhotographDAO(PhotographDAO photographDAO) {
+        this.photographDAO = photographDAO;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

@@ -7,4 +7,5 @@ import progectx.demo.models.Photograph;
 public interface PhotographDAO extends JpaRepository<Photograph,Integer> {
 
     UserDetails findByUsername(String username);
+
 }
