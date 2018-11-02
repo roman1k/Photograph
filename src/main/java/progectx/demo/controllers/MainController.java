@@ -92,31 +92,15 @@ public class MainController  {
         return "PhotographProfie";
     }
 
-
-
-
-
     @PostMapping("/saveCustomer")
     public String saveCustomer(Customer customer){
-
-
-
         customerDAO.save(customer);
         return "login";
     }
-
-
 
     @PostMapping("/savePhotographer")
     public String savePhotographer(Photograph photograph){
         photographDAO.save(photograph);
         return "login";
     }
-
-
-
-
-
-
-
 }
