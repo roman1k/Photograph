@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
+
 public class Admin extends  UserLog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
