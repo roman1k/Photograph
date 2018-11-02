@@ -34,6 +34,7 @@ public class MainController  {
     PhotographDAO photographDAO;
 
 
+
     @GetMapping("/")
     public String index(Model model){
         System.out.println("home");
