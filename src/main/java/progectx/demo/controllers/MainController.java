@@ -16,8 +16,18 @@ import progectx.demo.services.CustomerService;
 @Controller
 public class MainController  {
 
+
+
     @Autowired
-    CustomerDAO customerDAO;
+    private CustomerDAO customerDAO;
+
+    public CustomerDAO getCustomerDAO() {
+        return customerDAO;
+    }
+
+    public void setCustomerDAO(CustomerDAO customerDAO) {
+        this.customerDAO = customerDAO;
+    }
 
     @Autowired
     PhotographDAO photographDAO;
