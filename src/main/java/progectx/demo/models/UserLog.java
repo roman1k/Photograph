@@ -18,4 +18,9 @@ public  abstract class UserLog {
     private int id;
     private  String login;
     private  String password;
+
+    public UserLog(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
 }

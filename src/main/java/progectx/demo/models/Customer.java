@@ -23,12 +23,25 @@ public class Customer extends UserLog {
     private Role role = Role.ROLE_Customer;
     private Sex sex;
 
+    public Customer(String login, String password, UserLog userLog, String nameCustomer, String lastNameCustomer, Contact contact) {
+        super(login, password);
+        this.userLog = userLog;
+        this.nameCustomer = nameCustomer;
+        this.lastNameCustomer = lastNameCustomer;
+        this.contact = contact;
+    }
 
+    public Customer(String login, String password, String nameCustomer, String lastNameCustomer, int ageCustomer, Contact contact, Sex sex) {
+        super(login, password);
+        this.nameCustomer = nameCustomer;
+        this.lastNameCustomer = lastNameCustomer;
+        this.ageCustomer = ageCustomer;
+        this.contact = contact;
+        this.sex = sex;
+    }
 
-
-
-
-
-
-
+    public Customer(String login, String password, UserLog userLog) {
+        super(login, password);
+        this.userLog = userLog;
+    }
 }
