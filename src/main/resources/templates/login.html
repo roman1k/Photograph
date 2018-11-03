@@ -3,89 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>$Title$</title>
-    <link rel="stylesheet" href="../css/loginStyle.css">
-    <link type="text/javascript" src="loginScripts" >
 </head>
-
-
 <body>
+<link rel="stylesheet" href="../css/style.css">
 
-<div class="logInLogUpWindow">
+<div class="login">
+    <form th:action="/login/sign-in"  method="post">
+        <input type="text" name="login" placeholder="Enter email">
+        <input type="text" name="password" placeholder="Password">
+        <input type="submit" name="Login">
+    </form>
+</div>
 
-    <div class="logIn"  id="mydiv1" style="display:none;">
-       <form th:action="/login/sign-in"  method="post">
-           <ul>
-               <li><input type="text" name="login" placeholder="Enter email"></li>
-               <li><input type="text" name="password" placeholder="Password"></li>
-               <li ><input type="submit" name="Login" value="Sign in" class="submitSignIn"></li>
-           </ul>
-       </form>
+<form th:action="/saveCustomer" method="post">
+
+    <div class="user_registration">
+    <ul>
+
+    <li><label th:for="first_name">First Name:</label></li>
+    <input type="text" name="name" placeholder="Enter first name" required>
+    <li><label th:for="surname">Surname:</label></li>
+    <input type="text" name="lastName" placeholder="Enter surname" required>
+    <li><label th:for="email">E-mail:</label></li>
+    <input type="email" name="email" placeholder="Enter E-mail" required>
+    <li><label th:for="tel_number">Telephone number:</label></li>
+    <input type="number" name="tel_number" placeholder="Enter telephone number" required>
+    <li><label th:for="login">Login:</label></li>
+    <input type="text" name="login" placeholder="Enter login" required>
+    <li><label th:for="login">Login:</label></li>
+    <input type="password" name="password" placeholder="Enter password" required>
+        <h3><li><input type="submit" name="Sign up!"></li></h3>
+    </ul>
+
+
     </div>
 
+</form>
 
-
-<div class="content">
-    <form th:action="/saveCustomer" method="post">
-        <div class="user_registration">
-            <ul>
-                <li><label th:for="name">First Name:</label></li>
-                <input type="text" name="name" placeholder="Enter first name" required>
-                <li><label th:for="lastname">Surname:</label></li>
-                <input type="text" name="lastName" placeholder="Enter surname" required>
-                <li><label th:for="email">E-mail:</label></li>
-                <input type="email" name="email" placeholder="Enter E-mail" required>
-                <li><label th:for="login">Login:</label></li>
-                <input type="password" name="password" placeholder="Enter password" required>
-                <li><input type="password" name="password" placeholder="Enter password again" required></li>
-                <h3><li><input type="submit" name="Sign up!" value="Sign up" class="submitSignIn"></li></h3>
-            </ul>
-        </div>
-
-    </form>
-
-    <form th:action="/savePhotograph" method="post">
-        <div class="photograph_registration" id="mydiv2" style="display:none;">
-            <ul>
-                <li><label th:for="first_name">First Name:</label></li>
-                <input type="text" name="name" placeholder="Enter first name" required>
-                <li><label th:for="surname">Surname:</label></li>
-                <input type="text" name="lastName" placeholder="Enter surname" required>
-                <li><label th:for="email">E-mail:</label></li>
-                <input type="email" name="email" placeholder="Enter E-mail" required>
-                <li><label th:for="login">Login:</label></li>
-                <input type="password" name="password" placeholder="Enter password" required>
-                <li><input type="password" name="password" placeholder="Enter password again" required></li>
-                <h3><li><input type="submit" name="Sign up!" value="Sign up" class="submitSignIn"></li></h3>
-
-            </ul>
-        </div>
-    </form>
-
-</div>
-    <a data-text-show="Registration1212" data-text-hide="Login" onclick="viewdiv('mydiv');"><button class="collapsible1">Registration</button></a>
-</div>
 </body>
-
-<script>
-    let el = document.getElementById('mydiv1');
-    let el1 = document.getElementById('mydiv2');
-    let  el3 = document.getElementsByClassName('collapsible1');
-    function viewdiv() {
-        var link = document.getElementById('toggleLink');
-        if (el.style.display == "block") {
-            el.style.display = "none";
-            el1.style.display = "block";
-            el3.text = "laal";
-            link.innerText = link.getAttribute('data-text-hide');
-        } else {
-            el.style.display = "block";
-            el1.style.display = "none";
-            el3.text = "fsdfsd";
-            link.innerText = link.getAttribute('data-text-show');
-        }
-    }
-
-</script>
-
-
 </html>
