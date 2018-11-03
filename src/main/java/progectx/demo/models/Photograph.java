@@ -1,10 +1,13 @@
 package progectx.demo.models;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Null;
 import java.util.List;
+
 
 @Data
 @Entity

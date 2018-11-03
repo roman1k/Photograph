@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 @Entity
 @Data
-@NoArgsConstructor
+
 public class Gallery {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)

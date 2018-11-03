@@ -8,15 +8,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@NoArgsConstructor
 @Entity
 @Data
-@NoArgsConstructor
 public class Rating {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idRating;
-    private  int countOfLikes;
+    private int countOfLikes;
     private int mark;
     private int averageOfRating;
 
@@ -25,4 +25,8 @@ public class Rating {
         this.mark = mark;
         this.averageOfRating = averageOfRating;
     }
+
 }
+
+
+

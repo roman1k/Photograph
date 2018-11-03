@@ -1,9 +1,11 @@
 package progectx.demo.models;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+@NoArgsConstructor
 @Entity
 @Data
 @Table(name = "contact")
@@ -52,4 +54,6 @@ public class Contact {
         this.mail = mail;
         this.facebook = facebook;
     }
+
+
 }

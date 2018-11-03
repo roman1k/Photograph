@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@NoArgsConstructor
+
 public class Photo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,13 +1,16 @@
 package progectx.demo.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
 
 import javax.persistence.*;
 
 @Entity
 @Data
-
+@EqualsAndHashCode(callSuper = true)
 public class Admin extends  UserLog {
     @Id
     @OneToOne

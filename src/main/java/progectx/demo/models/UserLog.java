@@ -1,6 +1,8 @@
 package progectx.demo.models;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
@@ -9,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@NoArgsConstructor
 @Data
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -23,4 +26,5 @@ public  abstract class UserLog {
         this.login = login;
         this.password = password;
     }
+
 }
