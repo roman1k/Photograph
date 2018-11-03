@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@NoArgsConstructor
+
 public class Admin extends  UserLog {
     @Id
     @OneToOne
