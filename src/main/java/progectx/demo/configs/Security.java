@@ -24,7 +24,7 @@ public class Security extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")//сторінка логінації
                 .successForwardUrl("/successURL")//коли залогінюсь буде така урла handle with post mapping in controller
-                .failureUrl("/login?error").permitAll()//якщо ні то помилка
+                .failureUrl("/login?error").permitAll()//якщо ні то помилка postmapping
                 .permitAll()
                 .and()
                 .logout()

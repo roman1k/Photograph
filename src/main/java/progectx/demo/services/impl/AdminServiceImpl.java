@@ -12,6 +12,7 @@ import progectx.demo.services.AdminService;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Service
 public class AdminServiceImpl implements AdminService,UserDetailsService {
 

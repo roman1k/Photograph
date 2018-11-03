@@ -49,8 +49,6 @@ public class MainController  {
     }
 
 
-
-
     @GetMapping("/login/{Photograph}")
     public String loginPhotograph(
             Model model
@@ -58,14 +56,12 @@ public class MainController  {
         return "login";
     }
 
-
     @GetMapping("/login/{Costumer}")
     public String loginCostumer(
             Model model
     ){
         return "login";
     }
-
 
     //Виконуємо вхід на сайт
     // Доробити первірку на пароль і логін
@@ -78,12 +74,8 @@ public class MainController  {
         return "main";
     }
 
-
-
-
     @GetMapping("/main")
     public String main(Model model){
-        System.out.println("main");
         return "main";
     }
     @GetMapping("/photographprofile")
@@ -93,18 +85,11 @@ public class MainController  {
     }
 
 
-
-
-
     @PostMapping("/saveCustomer")
     public String saveCustomer(Customer customer){
-
-
-
         customerDAO.save(customer);
         return "login";
     }
-
 
 
     @PostMapping("/savePhotographer")
@@ -112,11 +97,5 @@ public class MainController  {
         photographDAO.save(photograph);
         return "login";
     }
-
-
-
-
-
-
 
 }
