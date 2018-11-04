@@ -3,72 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>$Title$</title>
-    <link rel="stylesheet" href="../css/mainStyle.css">
-    <script src="../scripts/main.js"></script>
 </head>
-
 <body>
-<div class="container">
-    <div class="main" >
-
-
-        <form th:action="/login/sign-in" method="post">
-            <div class="input-wrap" id="log" style="height: 430px">
-                <ul>
-                    <li><input type="text" name="login" placeholder="Enter email"></li>
-
-                    <li><input type="text" name="password" placeholder="Password"></li>
-
-                    <li class="wrap"><button class="btn">Login</button></li>
-                </ul>
-            </div>
-        </form>
-
-
-
-        <form action="">
-            <div class="photograph_registration" id="reg"  style="height: 430px">
-                <ul>
-                    <li><label th:for="first_name">First Name:</label></li>
-                    <input type="text" name="name" required>
-
-                    <li><label th:for="surname">Surname:</label></li>
-                    <input type="text" name="lastName" required>
-
-                    <li><label th:for="email">E-mail:</label></li>
-                    <input type="email" name="email" required>
-
-                    <li><label th:for="password">Password:</label></li>
-                    <input type="password" name="password" required>
-
-
-                    <li><label th:for="password1">Confirm Password:</label></li>
-                    <input type="password" name="password1" required>
-
-                    <li><input type="submit" name="Sign up!" value="Sign up" class="btn"></li>
-                </ul>
-            </div>
-        </form>
-
-
-        <div class="btn-wrp">
-            <button onclick="visibleLogin(); hideRegister(); ">
-                Sign In
-            </button>
-            <!--<input  type="submit" class="button" name="Login" value="Sign in" class="submitSignIn">-->
-            <button onclick="visibleRegister(); hideLogin();">
-                Sign Up
-            </button>
-        </div>
-
-
-    </div>
-</div>
-
-
-<script>
-
-</script>
-
+$END$
 </body>
 </html>
