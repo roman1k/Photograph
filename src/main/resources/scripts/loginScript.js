@@ -1,4 +1,3 @@
-
 let el = document.getElementById('mydiv1');
 let el1 = document.getElementById('mydiv2');
 function viewdiv() {
