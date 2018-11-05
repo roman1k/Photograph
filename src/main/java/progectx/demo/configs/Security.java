@@ -18,10 +18,6 @@ public class Security extends WebSecurityConfigurerAdapter {
     @Qualifier("userServiceImpl")
     private UserDetailsService userDetailsService;
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("user").password("{noop}pass").roles("ADMIN");
-    }
 
 //(sec + cntrl+j part2)
 
@@ -29,7 +25,7 @@ public class Security extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()//авторизовує всі реквести(запити)
-                .antMatchers("/", "/home", "/saveCustomer", "/savePhotograph").permitAll()//на ці запити переходить будь хто
+                .antMatchers("/", "/home", "/saveCustomer", "/savePhotographer").permitAll()//на ці запити переходить будь хто
                 .anyRequest().authenticated()//на всі інші тільки аутентифіковані
                 .antMatchers("/admin/**").hasRole("ADMIN")//тільки адмін на такі
                 .and()

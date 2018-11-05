@@ -12,7 +12,7 @@ import progectx.demo.services.CustomerService;
 import java.util.ArrayList;
 import java.util.List;
 @Service
-public class CustomerServiceImpl implements CustomerService {
+public class CustomerServiceImpl implements CustomerService,UserDetailsService {
    @Autowired
    private CustomerDAO customerDAO;
 

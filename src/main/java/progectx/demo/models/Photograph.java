@@ -3,16 +3,21 @@ package progectx.demo.models;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.Null;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 
 @Data
 @Entity
 @Table(name = "photograph")
-public class Photograph extends UserLog{
+public class Photograph extends UserLog implements UserDetails {
     @Id
     @OneToOne
             (optional = false)
@@ -92,6 +97,117 @@ public class Photograph extends UserLog{
         this.galleries = galleries;
         this.rating = rating;
         this.sex = sex;
+    }
+
+
+
+
+
+
+
+
+    ///sec
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<SimpleGrantedAuthority> simpleGrantedAuthorities = new ArrayList<>();
+        simpleGrantedAuthorities.add(new SimpleGrantedAuthority(role.name()));
+        return  simpleGrantedAuthorities;
+    }
+
+    @Override
+    public String getUsername() {
+        return namePhotograph;
+    }
+
+    private boolean accountNonExpired = true;
+
+    public void setAccountNonExpired(boolean accountNonExpired) {
+        this.accountNonExpired = accountNonExpired;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return accountNonExpired;
+    }
+
+
+
+
+
+    private boolean accountNonLocked = true;
+
+    public void setAccountNonLocked(boolean accountNonLocked) {
+        this.accountNonLocked = accountNonLocked;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return accountNonLocked;
+    }
+
+
+
+
+
+    private boolean credentialsNonExpired = true;
+
+    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+        this.credentialsNonExpired = credentialsNonExpired;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return credentialsNonExpired;
+    }
+
+
+    private boolean enabled = true;
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+
+    public Photograph(UserLog userLog, String namePhotograph, String lastNamePhotograph, int agePhotograph, int price, Contact contact, List<Gallery> galleries, Role role, Rating rating, Sex sex, String avatar, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
+        this.userLog = userLog;
+        this.namePhotograph = namePhotograph;
+        this.lastNamePhotograph = lastNamePhotograph;
+        this.agePhotograph = agePhotograph;
+        this.price = price;
+        this.contact = contact;
+        this.galleries = galleries;
+        this.role = role;
+        this.rating = rating;
+        this.sex = sex;
+        this.avatar = avatar;
+        this.accountNonExpired = accountNonExpired;
+        this.accountNonLocked = accountNonLocked;
+        this.credentialsNonExpired = credentialsNonExpired;
+        this.enabled = enabled;
+    }
+
+    public Photograph(String login, String password, UserLog userLog, String namePhotograph, String lastNamePhotograph, int agePhotograph, int price, Contact contact, List<Gallery> galleries, Role role, Rating rating, Sex sex, String avatar, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
+        super(login, password);
+        this.userLog = userLog;
+        this.namePhotograph = namePhotograph;
+        this.lastNamePhotograph = lastNamePhotograph;
+        this.agePhotograph = agePhotograph;
+        this.price = price;
+        this.contact = contact;
+        this.galleries = galleries;
+        this.role = role;
+        this.rating = rating;
+        this.sex = sex;
+        this.avatar = avatar;
+        this.accountNonExpired = accountNonExpired;
+        this.accountNonLocked = accountNonLocked;
+        this.credentialsNonExpired = credentialsNonExpired;
+        this.enabled = enabled;
     }
 }
 
