@@ -16,41 +16,19 @@ import java.util.List;
 
 @Entity
 @Data
-@EqualsAndHashCode(callSuper = true)
-public class Admin extends  UserLog implements UserDetails {
+
+public class Admin  implements UserDetails {
     @Id
-    @OneToOne
-            (optional = false)
-    @JoinColumn(name = "id", unique = true, nullable = false, updatable = false)
-    private UserLog userLog;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private  int id;
+    private  String login;
+    private  String password;
     private String nameAdmin;
     private Role role = Role.ROLE_Admin;
     @OneToOne(optional = false)
     private Contact contact;
 
-    public Admin(String login, String password) {
-        super(login, password);
 
-    }
-
-    public Admin(String login, String password, String nameAdmin, Role role, Contact contact) {
-        super(login, password);
-        this.nameAdmin = nameAdmin;
-        this.role = role;
-        this.contact = contact;
-    }
-
-    public Admin(String login, String password, Contact contact) {
-        super(login, password);
-        this.contact = contact;
-    }
-
-    public Admin(String login, String password, UserLog userLog, String nameAdmin, Role role) {
-        super(login, password);
-        this.userLog = userLog;
-        this.nameAdmin = nameAdmin;
-        this.role = role;
-    }
     //sec
 
     private boolean accountNonExpired = true;
@@ -128,7 +106,6 @@ public class Admin extends  UserLog implements UserDetails {
     @Override
     public String toString() {
         return "Admin{" +
-                "userLog=" + userLog +
                 ", nameAdmin='" + nameAdmin + '\'' +
                 ", role=" + role +
                 ", contact=" + contact +

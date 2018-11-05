@@ -5,7 +5,7 @@ import progectx.demo.models.Customer;
 
 import java.util.List;
 
-public interface CustomerService extends UserDetailsService {
+public interface CustomerService {
 
 
     void save(Customer user);

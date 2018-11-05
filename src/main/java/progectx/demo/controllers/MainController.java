@@ -21,13 +21,7 @@ public class MainController  {
     @Autowired
     private CustomerDAO customerDAO;
 
-    public CustomerDAO getCustomerDAO() {
-        return customerDAO;
-    }
 
-    public void setCustomerDAO(CustomerDAO customerDAO) {
-        this.customerDAO = customerDAO;
-    }
 
     @Autowired
     PhotographDAO photographDAO;

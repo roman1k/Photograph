@@ -15,12 +15,12 @@ import java.util.List;
 
 @Data
 @Entity
-public class Customer extends UserLog implements UserDetails {
+public class Customer  implements UserDetails {
     @Id
-    @OneToOne
-            (optional = false)
-    @JoinColumn(name="id", unique = true, nullable = false, updatable = false)
-    private UserLog userLog;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private  int id;
+    private  String login;
+    private  String password;
     private String nameCustomer;
     private String lastNameCustomer;
     private int ageCustomer;
@@ -31,27 +31,7 @@ public class Customer extends UserLog implements UserDetails {
     private Role role = Role.ROLE_Customer;
     private Sex sex;
 
-    public Customer(String login, String password, UserLog userLog, String nameCustomer, String lastNameCustomer, Contact contact) {
-        super(login, password);
-        this.userLog = userLog;
-        this.nameCustomer = nameCustomer;
-        this.lastNameCustomer = lastNameCustomer;
-        this.contact = contact;
-    }
 
-    public Customer(String login, String password, String nameCustomer, String lastNameCustomer, int ageCustomer, Contact contact, Sex sex) {
-        super(login, password);
-        this.nameCustomer = nameCustomer;
-        this.lastNameCustomer = lastNameCustomer;
-        this.ageCustomer = ageCustomer;
-        this.contact = contact;
-        this.sex = sex;
-    }
-
-    public Customer(String login, String password, UserLog userLog) {
-        super(login, password);
-        this.userLog = userLog;
-    }
 
 
     //sec
@@ -127,8 +107,8 @@ public class Customer extends UserLog implements UserDetails {
     }
 
 
-    public Customer(UserLog userLog, String nameCustomer, String lastNameCustomer, int ageCustomer, Contact contact, Role role, Sex sex, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
-        this.userLog = userLog;
+    public Customer( String nameCustomer, String lastNameCustomer, int ageCustomer, Contact contact, Role role, Sex sex, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
+
         this.nameCustomer = nameCustomer;
         this.lastNameCustomer = lastNameCustomer;
         this.ageCustomer = ageCustomer;
@@ -141,9 +121,9 @@ public class Customer extends UserLog implements UserDetails {
         this.enabled = enabled;
     }
 
-    public Customer(String login, String password, UserLog userLog, String nameCustomer, String lastNameCustomer, int ageCustomer, Contact contact, Role role, Sex sex, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
-        super(login, password);
-        this.userLog = userLog;
+    public Customer(String login, String password,  String nameCustomer, String lastNameCustomer, int ageCustomer, Contact contact, Role role, Sex sex, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
+        this.login = login;
+        this.password = password;
         this.nameCustomer = nameCustomer;
         this.lastNameCustomer = lastNameCustomer;
         this.ageCustomer = ageCustomer;

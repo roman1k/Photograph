@@ -20,9 +20,6 @@ public class AdminServiceImpl implements AdminService,UserDetailsService{
 
 
 
-
-
-
     @Override
     public void save(Admin admin) {
         if (admin !=null){

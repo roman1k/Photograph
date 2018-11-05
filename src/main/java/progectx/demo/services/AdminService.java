@@ -5,7 +5,8 @@ import progectx.demo.models.Admin;
 
 import java.util.List;
 
-public interface AdminService extends UserDetailsService {
+
+public interface AdminService {
     void save(Admin admin);
 
 

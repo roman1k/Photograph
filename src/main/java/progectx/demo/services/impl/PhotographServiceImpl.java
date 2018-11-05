@@ -19,17 +19,9 @@ public class PhotographServiceImpl implements PhotographService, UserDetailsServ
  @Autowired
     private PhotographDAO photographDAO;
 
-    public PhotographDAO getPhotographDAO() {
-        return photographDAO;
-    }
-
-    public void setPhotographDAO(PhotographDAO photographDAO) {
-        this.photographDAO = photographDAO;
-    }
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return photographDAO.findByUsername(username);
+        return null;
     }
 
 
