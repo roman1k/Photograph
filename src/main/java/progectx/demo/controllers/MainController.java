@@ -12,6 +12,7 @@ import progectx.demo.DAO.CustomerDAO;
 import progectx.demo.DAO.PhotographDAO;
 import progectx.demo.models.Customer;
 import progectx.demo.models.Photograph;
+import progectx.demo.models.Sex;
 import progectx.demo.services.CustomerService;
 
 @Controller
@@ -98,9 +99,22 @@ public class MainController  {
         return "login";
     }
 
-    @PostMapping("/savePhotographer")
-    public String savePhotographer(Photograph photograph){
-        photographDAO.save(photograph);
-        return "login";
+
+    @PostMapping("/uploadPhotograph")
+    public void uploadPhotograph(
+            @RequestParam String name,
+            @RequestParam String lastName,
+            @RequestParam int year,
+            @RequestParam Sex sex,
+            //number
+            @RequestParam String
+
+
+
+            ){
+
+
+
     }
+
 }
