@@ -14,13 +14,14 @@
         <input type="text" name="name" placeholder="ім'я">
     </div>
     <div>
-        <input type="text" name="lastname" placeholder="прізвище">
+        <input type="text" name="lastName" placeholder="прізвище">
     </div>
     <div>
-        <select id="year"></select>
+        <select id="year" name ="year"></select>
     </div>
     <div>
-        <select>
+
+        <select name="sex">
             <option id="male">Male</option>
             <option id="female">Female</option>
             <option id="anyone">Anyone</option>
@@ -41,11 +42,37 @@
     <div>
         <!--Gallary-->
     </div>
+    <button id="#btn">надіслати</button>>
 
 </form>
 </body>
 
 <script>
+    $.("#btn").click(function (event) {
+        event.preventDefault();
+
+
+            $.ajax({
+                url: '/uploadPhotograph',
+                type: 'Post',
+                data: new FormData($("regOFphotograph")[0]),
+                enctype: 'multipart/form-data',
+                processData: false,
+                contentType: false,
+                cache:false,
+                success: function () {
+                    console.log('ok');
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+    })
+
+
+
+
+
     function sendSex() {
 
         var type = "Male";
@@ -93,7 +120,7 @@
         document.getElementById("year").innerHTML = options;
     }
 
-    getYear();
-    sendSex();
+   // getYear();
+  //  sendSex();
 </script>
 </html>
