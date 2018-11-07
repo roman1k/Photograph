@@ -38,6 +38,8 @@ public class Photograph  implements UserDetails {
     private Rating rating;
     private Sex sex;
     private String avatar;
+    private String hashTag;
+    private String describe;
 
 
 
@@ -108,7 +110,7 @@ public class Photograph  implements UserDetails {
     }
 
 
-    public Photograph( String namePhotograph, String lastNamePhotograph, int agePhotograph, int price, Contact contact, List<Gallery> galleries, Role role, Rating rating, Sex sex, String avatar, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
+    public Photograph( String namePhotograph, String lastNamePhotograph, int agePhotograph, int price, Contact contact, List<Gallery> galleries, Role role, Rating rating, Sex sex, String avatar, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled, String describe) {
         this.namePhotograph = namePhotograph;
         this.lastNamePhotograph = lastNamePhotograph;
         this.agePhotograph = agePhotograph;
@@ -123,9 +125,10 @@ public class Photograph  implements UserDetails {
         this.accountNonLocked = accountNonLocked;
         this.credentialsNonExpired = credentialsNonExpired;
         this.enabled = enabled;
+        this.describe = describe;
     }
 
-    public Photograph(String login, String password,  String namePhotograph, String lastNamePhotograph, int agePhotograph, int price, Contact contact, List<Gallery> galleries, Role role, Rating rating, Sex sex, String avatar, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
+    public Photograph(String login, String password,  String namePhotograph, String lastNamePhotograph, int agePhotograph, int price, Contact contact, List<Gallery> galleries, Role role, Rating rating, Sex sex, String avatar, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled, String describe) {
         this.password = password;
         this.login = login;
         this.namePhotograph = namePhotograph;
@@ -142,6 +145,17 @@ public class Photograph  implements UserDetails {
         this.accountNonLocked = accountNonLocked;
         this.credentialsNonExpired = credentialsNonExpired;
         this.enabled = enabled;
+        this.describe = describe;
+    }
+    public Photograph(String namePhotograph,String lastNamePhotograph,int agePhotograph,Sex sex,Contact contact,String describe,int price, String hashTag){
+        this.namePhotograph = namePhotograph;
+        this.lastNamePhotograph = lastNamePhotograph;
+        this.agePhotograph = agePhotograph;
+        this.sex = sex;
+        this.contact = contact;
+        this.describe = describe;
+        this.price = price;
+        this.hashTag = hashTag;
     }
 }
 
