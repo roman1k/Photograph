@@ -2,36 +2,54 @@ package progectx.demo.controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import progectx.demo.DAO.CustomerDAO;
-import progectx.demo.DAO.PhotographDAO;
-import progectx.demo.models.Customer;
-import progectx.demo.models.Photograph;
-import progectx.demo.services.CustomerService;
+import org.springframework.web.bind.annotation.RequestParam;
+import progectx.demo.DAO.*;
+import progectx.demo.models.*;
+import progectx.demo.services.UserLogService;
 
 @Controller
 public class MainController  {
-
-
+    @Autowired
+    private PhotographDAO photographDAO;
 
     @Autowired
     private CustomerDAO customerDAO;
 
-
+    @Autowired
+    private AdminDAO adminDAO;
 
     @Autowired
-    PhotographDAO photographDAO;
+    private UserLogDao  userLogDao;
 
+    @Autowired
+    @Qualifier("userlogServiceImpl")
+    private  UserLogService userLogService;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
-
-    @GetMapping("/")
-    public String index(Model model){
-        System.out.println("home");
-        return "index";
+    @PostMapping("/saveKolya")
+    public String saveKolya(@RequestParam String username,
+                            @RequestParam String password,
+                            @RequestParam String number) {
+        System.out.println(1);
+        Contact contact = new Contact(number);
+        System.out.println(2);
+        System.out.println(3);
+        Kolya kolya = new Kolya(username, password);
+        System.out.println(4);
+        kolya.setContact(contact);
+        System.out.println();
+        String encode = passwordEncoder.encode(kolya.getPassword());
+        kolya.setPassword(encode);
+        userLogService.save(kolya);
+        kolya.setContact(contact);
+        return "redirect:/index";
     }
 
 
@@ -66,27 +84,6 @@ public class MainController  {
     public  String photographprofile(Model model){
         System.out.println("profile");
         return "PhotographProfie";
-    }
-
-
-
-
-
-    @PostMapping("/saveCustomer")
-    public String saveCustomer(Customer customer){
-
-
-
-        customerDAO.save(customer);
-        return "login";
-    }
-
-
-
-    @PostMapping("/savePhotographer")
-    public String savePhotographer(Photograph photograph){
-        photographDAO.save(photograph);
-        return "login";
     }
 
 

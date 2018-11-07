@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -19,9 +19,8 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class Security extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    @Qualifier("adminServiceImpl")
+    @Qualifier("userlogServiceImpl")
     private UserDetailsService userDetailsService;
-
 
 
 
@@ -31,7 +30,7 @@ public class Security extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()//авторизовує всі реквести(запити)
-                .antMatchers("/", "/home", "/saveCustomer", "/savePhotographer").permitAll()//на ці запити переходить будь хто
+                .antMatchers("/", "/home", "/saveCustomer", "/savePhotographer", "/saveKolya","/Kolya","/saveAdmin4uk", "/login").permitAll()//на ці запити переходить будь хто
                 .anyRequest().authenticated()//на всі інші тільки аутентифіковані
                 .antMatchers("/admin/**").hasRole("ADMIN")//тільки адмін на такі
                 .and()
@@ -54,10 +53,11 @@ public class Security extends WebSecurityConfigurerAdapter {
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(userDetailsService);
+            provider.setUserDetailsService(userDetailsService);
         provider.setPasswordEncoder(passwordEncoder());
         return provider;
     }
+
 
 
 }

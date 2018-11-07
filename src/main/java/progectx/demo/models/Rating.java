@@ -3,12 +3,9 @@ package progectx.demo.models;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
-@NoArgsConstructor
 @Entity
 @Data
 public class Rating {
@@ -19,14 +16,17 @@ public class Rating {
     private int countOfLikes;
     private int mark;
     private int averageOfRating;
+    @OneToMany
+    private List<UserLog> WhoLiked;
 
-    public Rating(int countOfLikes, int mark, int averageOfRating) {
+    public Rating(int countOfLikes, int mark, int averageOfRating, List<UserLog> whoLiked) {
         this.countOfLikes = countOfLikes;
         this.mark = mark;
         this.averageOfRating = averageOfRating;
+        WhoLiked = whoLiked;
     }
-
 }
+
 
 
 
