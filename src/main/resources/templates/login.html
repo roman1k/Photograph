@@ -34,101 +34,11 @@
     <input type="password" name="password" placeholder="Enter password" required>
         <h3><li><input type="submit" name="Sign up!"></li></h3>
     </ul>
+
+
     </div>
 
 </form>
-
-<form id="regOFphotograph" th:action="/savePhotographer" method="post">
-    <div class="photographerRegistration">
-        <div>
-            <input type = "file" name = "profileImage" placeholder="додати фото">
-        </div>
-        <div>
-            <input type="text" name="name" placeholder="ім'я">
-        </div>
-        <div>
-            <input type="text" name="lastname" placeholder="прізвище">
-        </div>
-        <div>
-            <select id="year"></select>
-        </div>
-        <div>
-            <select>
-                <option id="male">Male</option>
-                <option id="female">Female</option>
-                <option id="anyone">Anyone</option>
-            </select>
-        </div>
-        <div>
-            <input type="number" name="phone" placeholder="номер">
-        </div>
-        <div>
-            <input type="text" name="description" placeholder="опис">
-        </div>
-        <div>
-            <input type="number" name="price" placeholder="ціна за годину роботи">
-        </div>
-        <div>
-            <input type="text" name="hashtag" placeholder="хештег">
-        </div>
-        <div>
-            <!--Gallary-->
-        </div>
-    </div>
-</form>
-
-
 
 </body>
-
-
-
-<script>
-    function sendSex() {
-        var type = "Male";
-        $("male").click(function () {
-            let type = "P";
-            $.ajax({
-                url: '/PhotographProfile',
-                type: 'Post',
-                contentType: 'applications/json',
-                data: JSON.stringify({type})
-            })
-        });
-        var type = "Female";
-        $("female").click(function () {
-            let type = "Anyone";
-            $.ajax({
-                url: '/PhotographProfile',
-                type: 'Post',
-                contentType: 'applications/json',
-                data: JSON.stringify({type})
-            })
-        })
-        var type = "Anyone";
-        $("anyone").click(function () {
-            let type = "Anyone";
-            $.ajax({
-                url: '/PhotographProfile',
-                type: 'Post',
-                contentType: 'applications/json',
-                data: JSON.stringify({type})
-
-            })
-        })
-    }
-
-    function getYear() {
-        var start = 18;
-        var end = 120;
-        var options = "";
-        for(var year = start ; year <=end; year++){
-            options += "<option>"+ year +"</option>";
-        }
-        document.getElementById("year").innerHTML = options;
-    }
-
-    //getYear();
-  //  sendSex();
-</script>
 </html>

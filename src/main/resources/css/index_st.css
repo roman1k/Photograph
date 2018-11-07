@@ -114,6 +114,7 @@ body{
     height: 100vh;
 }
 button{
+    outline: none;
     display: inline-block;
     position: relative;
     background: none;
