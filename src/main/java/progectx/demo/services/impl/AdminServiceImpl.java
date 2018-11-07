@@ -8,10 +8,7 @@ import org.springframework.stereotype.Service;
 import progectx.demo.DAO.AdminDAO;
 import progectx.demo.DAO.CustomerDAO;
 import progectx.demo.DAO.PhotographDAO;
-import progectx.demo.models.Admin;
-import progectx.demo.models.Customer;
-import progectx.demo.models.Gallery;
-import progectx.demo.models.Photograph;
+import progectx.demo.models.*;
 import progectx.demo.services.AdminService;
 
 import java.util.ArrayList;
@@ -53,7 +50,13 @@ private CustomerDAO customerDAO;
 
     @Override
     public List<Gallery> ShowAllPhotos() {
-        photographDAO.findAll().stream()
+        List<Photograph> AllPhotographs = photographDAO.findAll().stream().collect(Collectors.toList());
+       List<List<Gallery>>AllGalleries = new ArrayList<>();
+        for (Photograph photograph:AllPhotographs) {
+            List<Gallery> galleries = photograph.getGalleries();
+            AllGalleries.add(galleries);
+
+        }
         return null;
     }
 
