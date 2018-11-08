@@ -11,7 +11,11 @@ input ,button{
 
 .container{
     display: flex;
+}
 
+body{
+
+    background: url("../images/green-city-gandhinagar-portal-bg-11-1.jpg") center center fixed;
 }
 
 .main{
@@ -21,10 +25,11 @@ input ,button{
     min-height: 430px;
     display: flex;
     flex-direction: column;
-    background: #edf0f3;
     padding-bottom: -10px;
-
+    background-image: linear-gradient(to bottom right,#05203e, #366056);
 }
+
+
 
 .top-part{
 
@@ -67,30 +72,28 @@ input{
     height: 300px;
     display: flex;
     justify-content: center;
-
+    background-image: linear-gradient(to bottom right, #366056,#05203e);
 }
 
 .btn-wrp input,.btn-wrp button{
     width: 50%;
     height: 35px;
-    color: #283e4a;
-    background-color: #edf0f3;
+    color: snow;
+    background-color: #1f414b;
     font-size:26px;
-    border: 1px #283e4a solid;
-    border-radius: 4px;
+    border: 0px snow solid;
 }
 
 button:hover{
-    background-color: #283e4a;
-    color: #edf0f3;
-    border-radius: 6px;
+    background-color: snow;
+    color: #1f414b;
 
 }
 
 label{
     font-size: 18px;
     line-height: normal;
-    color: rgba(0,0,0,0.9);
+    color: snow;
 }
 
 button a{
@@ -115,7 +118,6 @@ input{
     display: none;
     width: 50%;
     margin:  auto;
-
 }
 .photograph_registration ul{
     margin-top: 35px;
@@ -147,7 +149,7 @@ input{
     align-items: center;
     border-radius: 4px;
     margin-top: 20px;
-    border: 1px #283e4a solid;
+    border: 1px #183a46 solid;
     background-color: #3084c4;
 }
 
