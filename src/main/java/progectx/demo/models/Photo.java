@@ -5,19 +5,17 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@NoArgsConstructor
 @Entity
 @Data
-public class City {
+public class Photo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idCity;
-    private String nameCity;
+    private  int id;
+    private String namePhoto;
     @ManyToOne
-    private Contact contact;
-
-
-    public City(String nameCity) {
-        this.nameCity = nameCity;
+    private Gallery gallery;
+    public Photo(String namePhoto)
+    {
+        this.namePhoto = namePhoto;
     }
 }

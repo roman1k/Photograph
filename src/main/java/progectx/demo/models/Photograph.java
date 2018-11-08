@@ -1,105 +1,84 @@
 package progectx.demo.models;
 
-import lombok.Data;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
+import  javax.persistence.*;
+
 import java.util.List;
 
+
 @Entity
-@Data
-public class Photograph extends User implements UserDetails {
+@Table(name = "photograph")
+public class Photograph   extends UserLog {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String name;
-    private String lastName;
-    private int age;
-    @Enumerated(EnumType.STRING)
-    @ElementCollection
+    @OneToOne(optional = false)
+    @JoinColumn(name = "id", unique = true, nullable = false, updatable = false)
+    private UserLog userLog;
+    private Role role = Role.ROLE_Photograph;
+    @OneToMany
+    private List<Gallery> galleries;
+    @OneToOne
+    private  Rating rating;
     private Sex sex;
-    private Contact contact;
-    private List<Gallary> gallareis;
-    private String describe;
-    private int price;
-    private Rating rating;
-    private String hashTag;
-private Role role = Role.ROLE_Photograph;
+    private String description;
+    private  String avatar;
 
-
-
-
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<SimpleGrantedAuthority> simpleGrantedAuthorities = new ArrayList<>();
-        simpleGrantedAuthorities.add(new SimpleGrantedAuthority(role.name()));
-        return  simpleGrantedAuthorities;
+    public String getDescription() {
+        return description;
     }
 
-
-
-    @Override
-    public String getUsername() {
-        return name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-
-
-
-    private boolean accountNonExpired = true;
-
-    public void setAccountNonExpired(boolean accountNonExpired) {
-        this.accountNonExpired = accountNonExpired;
-    }
-    @Override
-    public boolean isAccountNonExpired() {
-        return accountNonExpired;
+    public String getAvatar() {
+        return avatar;
     }
 
-
-
-
-    private boolean accountNonLocked = true;
-
-    public void setAccountNonLocked(boolean accountNonLocked) {
-        this.accountNonLocked = accountNonLocked;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     @Override
-    public boolean isAccountNonLocked() {
-        return accountNonLocked;
-    }
-
-
-
-    private boolean credentialsNonExpired = true;
-
-    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
-        this.credentialsNonExpired = credentialsNonExpired;
+    public Role getRole() {
+        return role;
     }
 
     @Override
-    public boolean isCredentialsNonExpired() {
-        return credentialsNonExpired;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
-
-
-    private boolean enabled = true;
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+    public List<Gallery> getGalleries() {
+        return galleries;
     }
 
-    @Override
-    public boolean isEnabled() {
-        return enabled;
+    public void setGalleries(List<Gallery> galleries) {
+        this.galleries = galleries;
     }
 
+    public Rating getRating() {
+        return rating;
+    }
+
+    public void setRating(Rating rating) {
+        this.rating = rating;
+    }
+
+    public Sex getSex() {
+        return sex;
+    }
+
+    public void setSex(Sex sex) {
+        this.sex = sex;
+    }
+
+    public Photograph(String username, String password) {
+        super(username, password);
+    }
+
+    public Photograph(String username, String password, String firstName, String lastName, Contact contact) {
+        super(username, password, firstName, lastName, contact);
+    }
 }
+
 

@@ -1,18 +1,28 @@
 package progectx.demo.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.lang.NonNull;
+
+import javax.persistence.*;
+
 
 @Entity
-public class Contact
-{
+@Data
+public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String number;
-    private City city;
-    private String mail;
-    private String faceBook;
-    private String Instagram;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    private  City city;
+    private  String mail;
+    private  String facebook;
+    private  String instagram;
+
+
+
+    public Contact(String mail) {
+        this.mail = mail;
+    }
 }

@@ -5,6 +5,122 @@
     <title>$Title$</title>
 </head>
 <body>
-$END$
+
+<form id="regOFphotograph" th:action="/savePhotographer" method="post">
+    <div>
+        <input type = "file" name = "profileImage" placeholder="додати фото">
+    </div>
+    <div>
+        <input type="text" name="name" placeholder="ім'я">
+    </div>
+    <div>
+        <input type="text" name="lastName" placeholder="прізвище">
+    </div>
+    <div>
+        <select id="year" name ="year"></select>
+    </div>
+    <div>
+
+        <select name="sex">
+            <option id="male">Male</option>
+            <option id="female">Female</option>
+            <option id="anyone">Anyone</option>
+        </select>
+    </div>
+    <div>
+        <input type="number" name="phone" placeholder="номер">
+    </div>
+    <div>
+        <input type="text" name="description" placeholder="опис">
+    </div>
+    <div>
+        <input type="number" name="price" placeholder="ціна за годину роботи">
+    </div>
+    <div>
+        <input type="text" name="hashtag" placeholder="хештег">
+    </div>
+    <div>
+        <!--Gallary-->
+    </div>
+    <button id="#btn">надіслати</button>>
+
+</form>
 </body>
+
+<script>
+    $.("#btn").click(function (event) {
+        event.preventDefault();
+
+
+            $.ajax({
+                url: '/uploadPhotograph',
+                type: 'Post',
+                data: new FormData($("regOFphotograph")[0]),
+                enctype: 'multipart/form-data',
+                processData: false,
+                contentType: false,
+                cache:false,
+                success: function () {
+                    console.log('ok');
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+    })
+
+
+
+
+
+    function sendSex() {
+
+        var type = "Male";
+            $("male").click(function () {
+                let type = "P";
+                $.ajax({
+                    url: '/PhotographProfile',
+                    type: 'Post',
+                    contentType: 'applications/json',
+                    data: JSON.stringify({type})
+                })
+
+            });
+        var type = "Female";
+        $("female").click(function () {
+            let type = "Anyone";
+            $.ajax({
+                url: '/PhotographProfile',
+                type: 'Post',
+                contentType: 'applications/json',
+                data: JSON.stringify({type})
+            })
+        })
+        var type = "Anyone";
+        $("anyone").click(function () {
+            let type = "Anyone";
+            $.ajax({
+                url: '/PhotographProfile',
+                type: 'Post',
+                contentType: 'applications/json',
+                data: JSON.stringify({type})
+
+            })
+        })
+
+    }
+
+    function getYear() {
+        var start = 18;
+        var end = 120;
+        var options = "";
+        for(var year = start ; year <=end; year++){
+            options += "<option>"+ year +"</option>";
+        }
+        document.getElementById("year").innerHTML = options;
+    }
+
+   // getYear();
+  //  sendSex();
+</script>
 </html>
