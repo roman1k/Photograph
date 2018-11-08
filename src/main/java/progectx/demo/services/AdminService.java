@@ -18,9 +18,9 @@ public interface AdminService {
 //6. Видалити фото аватарку
 
 
-    Object DeletePhotograph(String name);
+   void  DeletePhotograph(String name);
 
-    Object DeleteCustomer(String name);
+    void  DeleteCustomer(String name);
 
     List<Photo> ShowAllPhotos();
 

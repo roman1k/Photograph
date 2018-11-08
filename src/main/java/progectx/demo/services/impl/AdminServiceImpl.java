@@ -37,19 +37,21 @@ private CustomerDAO customerDAO;
 
     //1. Видаляти фотографа
     @Override
-    public Object DeletePhotograph(String name) {
+    public void DeletePhotograph(String name) {
         Stream<Photograph> allPhotographs = photographDAO.findAll().stream();
-        List<Photograph> Photograph = allPhotographs.filter(photograph1 -> photograph1.getUsername().equals(name)).collect(Collectors.toList());
-        return  Photograph.remove(0);
+        List<Photograph> photograph = allPhotographs.filter(photograph1 -> photograph1.getUsername().equals(name)).collect(Collectors.toList());
+        Photograph photograph2 = photograph.get(0);
+        photographDAO.delete(photograph2);
     }
 
 
     //2. Видаляти кастомера
     @Override
-    public Object DeleteCustomer(String name) {
+    public void DeleteCustomer(String name) {
         Stream<Customer> allCustomers = customerDAO.findAll().stream();
-        List<Customer> Customer = allCustomers.filter(customer -> customer.getUsername().equals(name)).collect(Collectors.toList());
-        return  Customer.remove(0);
+        List<Customer> customer = allCustomers.filter(customer1 -> customer1.getUsername().equals(name)).collect(Collectors.toList());
+        Customer customer2 = customer.get(0);
+        customerDAO.delete(customer2);
     }
     //3. Перегляд усіх фото
     @Override
