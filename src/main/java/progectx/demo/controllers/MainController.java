@@ -2,37 +2,60 @@ package progectx.demo.controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import progectx.demo.DAO.CustomerDAO;
-import progectx.demo.DAO.PhotographDAO;
-import progectx.demo.models.Customer;
-import progectx.demo.models.Photograph;
-import progectx.demo.services.CustomerService;
+import org.springframework.web.bind.annotation.RequestParam;
+import progectx.demo.DAO.*;
+import progectx.demo.models.*;
+import progectx.demo.services.PhotographService;
+import progectx.demo.services.UserLogService;
 
 @Controller
 public class MainController  {
-
-
-
     @Autowired
     private CustomerDAO customerDAO;
 
-
+    @Autowired
+    private AdminDAO adminDAO;
 
     @Autowired
-    PhotographDAO photographDAO;
+    private UserLogDao  userLogDao;
 
+    @Autowired
+    @Qualifier("userlogServiceImpl")
+    private  UserLogService userLogService;
 
+    @Autowired
+    @Qualifier("photographServiceImpl")
+    private PhotographService photographService;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
-    @GetMapping("/")
-    public String index(Model model){
-        System.out.println("home");
+    @PostMapping("/home")
+    public  String savePhotograph(@RequestParam String role,
+                                  @RequestParam String username,
+                                  @RequestParam String password,
+                                  @RequestParam String mail,
+                                  @RequestParam String name,
+                                  @RequestParam String lastName ){
+
+        if (role.equals("photo")) {
+            photographService.save(photographService.getPhotograph(username,password, mail, name, lastName));
+        }
+        else{
+            userLogService.save(userLogService.getCustomer(username,password, mail, name, lastName));
+        }
         return "index";
     }
+
+
+
+
 
 
     @PostMapping("/photographsettings")
@@ -44,17 +67,6 @@ public class MainController  {
 
 
 
-    @GetMapping("/login")
-    public String login( String type){
-        if(type == "U"){
-
-        }
-        else{
-
-        }
-        System.out.println("login");
-        return "login";
-    }
 
 
     @GetMapping("/main")
@@ -66,27 +78,6 @@ public class MainController  {
     public  String photographprofile(Model model){
         System.out.println("profile");
         return "PhotographProfie";
-    }
-
-
-
-
-
-    @PostMapping("/saveCustomer")
-    public String saveCustomer(Customer customer){
-
-
-
-        customerDAO.save(customer);
-        return "login";
-    }
-
-
-
-    @PostMapping("/savePhotographer")
-    public String savePhotographer(Photograph photograph){
-        photographDAO.save(photograph);
-        return "login";
     }
 
 
