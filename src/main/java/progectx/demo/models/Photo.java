@@ -12,7 +12,8 @@ public class Photo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;
     private String namePhoto;
-
+    @ManyToOne
+    private Gallery gallery;
     public Photo(String namePhoto)
     {
         this.namePhoto = namePhoto;

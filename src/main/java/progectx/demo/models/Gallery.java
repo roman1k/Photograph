@@ -12,7 +12,8 @@ public class Gallery {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private int id;
-
+        @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+        private Photograph photograph;
         private  String nameGallery;
         private String hashTag;
         @OneToMany

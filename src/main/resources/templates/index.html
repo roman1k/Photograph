@@ -7,11 +7,13 @@
 </head>
 <body>
 <hr>
-<form th:action="@{/saveAdmin4uk}" method="post">
+<form th:action="@{/home}" method="post">
+    <input type="hidden" name="role" th:value="photo">
     <input type="" name="username" placeholder="">
-    <input type="" name="password" placeholder="">
-    <input type="" name="number" placeholder="">
-
+    <input type="password" name="password" placeholder="">
+    <input type="" name="mail" placeholder="">
+    <input type="" name="name" placeholder="">
+    <input type="" name="lastName" placeholder="">
     <input type = "submit" value="go!">
 </form>
 <p>
@@ -21,11 +23,16 @@
     <input type="" name="username" placeholder="">
     <input type="" name="password" placeholder="">
     <input type="" name="number" placeholder="">
+    <input type="" name="number" placeholder="">
+    <input type="" name="number" placeholder="">
 
     <input type = "submit" value="go!">
 </form>
 </body>
 
+<SCRIPT>
+    function f() {
 
-
+    }
+</SCRIPT>
 </html>

@@ -13,9 +13,9 @@ public class Rating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idRating;
-    private int countOfLikes;
-    private int mark;
-    private int averageOfRating;
+    private int countOfLikes = 0;
+    private int mark = 0;
+    private int averageOfRating = 0;
     @OneToMany
     private List<UserLog> WhoLiked;
 
@@ -24,6 +24,14 @@ public class Rating {
         this.mark = mark;
         this.averageOfRating = averageOfRating;
         WhoLiked = whoLiked;
+    }
+
+    public Rating(int mark, List<UserLog> whoLiked) {
+        this.mark = mark;
+        WhoLiked = whoLiked;
+    }
+
+    public Rating() {
     }
 }
 

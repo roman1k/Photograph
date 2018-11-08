@@ -1,16 +1,8 @@
 package progectx.demo.models;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.*;
-import javax.validation.constraints.Null;
-import java.util.ArrayList;
-import java.util.Collection;
+import  javax.persistence.*;
+
 import java.util.List;
 
 
@@ -22,7 +14,63 @@ public class Photograph   extends UserLog {
     @JoinColumn(name = "id", unique = true, nullable = false, updatable = false)
     private UserLog userLog;
     private Role role = Role.ROLE_Photograph;
+    @OneToMany
+    private List<Gallery> galleries;
+    @OneToOne
+    private  Rating rating;
+    private Sex sex;
+    private String description;
+    private  String avatar;
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    @Override
+    public Role getRole() {
+        return role;
+    }
+
+    @Override
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public List<Gallery> getGalleries() {
+        return galleries;
+    }
+
+    public void setGalleries(List<Gallery> galleries) {
+        this.galleries = galleries;
+    }
+
+    public Rating getRating() {
+        return rating;
+    }
+
+    public void setRating(Rating rating) {
+        this.rating = rating;
+    }
+
+    public Sex getSex() {
+        return sex;
+    }
+
+    public void setSex(Sex sex) {
+        this.sex = sex;
+    }
 
     public Photograph(String username, String password) {
         super(username, password);
