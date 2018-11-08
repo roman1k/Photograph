@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import progectx.demo.DAO.*;
 import progectx.demo.models.*;
+import progectx.demo.services.PhotographService;
 import progectx.demo.services.UserLogService;
 
 @Controller
@@ -28,6 +29,10 @@ public class MainController  {
     @Autowired
     @Qualifier("userlogServiceImpl")
     private  UserLogService userLogService;
+
+    @Autowired
+    @Qualifier("photographServiceImpl")
+    private PhotographService photographService;
     @Autowired
     private PasswordEncoder passwordEncoder;
 
@@ -40,7 +45,7 @@ public class MainController  {
                                   @RequestParam String lastName ){
 
         if (role.equals("photo")) {
-            userLogService.save(userLogService.getPhotograph(username,password, mail, name, lastName));
+            photographService.save(photographService.getPhotograph(username,password, mail, name, lastName));
         }
         else{
             userLogService.save(userLogService.getCustomer(username,password, mail, name, lastName));

@@ -51,22 +51,22 @@ public class UserlogServiceImpl implements UserLogService, UserDetailsService {
         customerDAO.save(customer);
     }
 
-    @Override
-    public Photograph getPhotograph(String username, String password, String mail, String name, String lastName){
-        Rating rating = new Rating();
-        ratingDAO.save(rating);
-        Contact contact = new Contact(mail);
-        contactDao.save(contact);
-        Photograph photograph = new Photograph(username,password);
-        String encode = passwordEncoder.encode(photograph.getPassword());
-        photograph.setPassword(encode);
-        photograph.setContact(contact);
-        photograph.setRating(rating);
-        photograph.setLastName(lastName);
-        photograph.setFirstName(name);
-        photographDAO.save(photograph);
-        return photograph;
-    }
+//    @Override
+//    public Photograph getPhotograph(String username, String password, String mail, String name, String lastName){
+//        Rating rating = new Rating();
+//        ratingDAO.save(rating);
+//        Contact contact = new Contact(mail);
+//        contactDao.save(contact);
+//        Photograph photograph = new Photograph(username,password);
+//        String encode = passwordEncoder.encode(photograph.getPassword());
+//        photograph.setPassword(encode);
+//        photograph.setContact(contact);
+//        photograph.setRating(rating);
+//        photograph.setLastName(lastName);
+//        photograph.setFirstName(name);
+//        photographDAO.save(photograph);
+//        return photograph;
+//    }
 
     @Override
     public Customer getCustomer(String username, String password, String mail, String name, String lastName) {
