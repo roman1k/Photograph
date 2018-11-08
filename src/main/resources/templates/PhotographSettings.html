@@ -8,7 +8,7 @@
 
 <form id="regOFphotograph" th:action="/savePhotographer" method="post">
     <div>
-        <input type = "file" name = "profileImage" placeholder="додати фото">
+        <input type = "file" name = "profileImage" placeholder="додати аватарку ">
     </div>
     <div>
         <input type="text" name="namePhotograph" placeholder="ім'я">
@@ -57,6 +57,7 @@
     </div>
     <div>
         <!--Gallary-->
+        <input>
     </div>
     <button id="#btn">надіслати</button>>
 
@@ -64,7 +65,7 @@
 </body>
 
 <script>
-    $.("#btn").click(function (event) {
+    $.save("#btn").click(function (event){
         event.preventDefault();
 
 

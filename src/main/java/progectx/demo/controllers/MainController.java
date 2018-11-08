@@ -54,10 +54,6 @@ public class MainController  {
     }
 
 
-
-
-
-
     @PostMapping("/photographsettings")
     public String photographsettings(Model model){
         System.out.println("hotographsettings");
