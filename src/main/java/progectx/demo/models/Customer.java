@@ -13,127 +13,21 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-@Data
+
 @Entity
-public class Customer  implements UserDetails {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  int id;
-    private  String login;
-    private  String password;
-    private String nameCustomer;
-    private String lastNameCustomer;
-    private int ageCustomer;
-    @OneToOne
-            (optional = false)
-    @JoinColumn(name="number", unique = true, nullable = false, updatable = false)
-    private Contact contact;
+public class Customer  extends UserLog {
+    @OneToOne(optional = false)
+    @JoinColumn(name = "id", unique = true, nullable = false, updatable = false)
+    private  UserLog userLog;
     private Role role = Role.ROLE_Customer;
-    private Sex sex;
 
 
-
-
-    //sec
-    private boolean accountNonExpired = true;
-
-    public void setAccountNonExpired(boolean accountNonExpired) {
-        this.accountNonExpired = accountNonExpired;
+    public Customer(String username, String password) {
+        super(username, password);
     }
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return accountNonExpired;
-    }
-
-
-
-
-
-    private boolean accountNonLocked = true;
-
-    public void setAccountNonLocked(boolean accountNonLocked) {
-        this.accountNonLocked = accountNonLocked;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return accountNonLocked;
-    }
-
-
-
-
-
-    private boolean credentialsNonExpired = true;
-
-    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
-        this.credentialsNonExpired = credentialsNonExpired;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return credentialsNonExpired;
-    }
-
-
-
-
-
-    private boolean enabled = true;
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return enabled;
-    }
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<SimpleGrantedAuthority> simpleGrantedAuthorities = new ArrayList<>();
-        simpleGrantedAuthorities.add(new SimpleGrantedAuthority(role.name()));
-        return  simpleGrantedAuthorities;
-    }
-
-    @Override
-    public String getUsername() {
-        return nameCustomer;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-
-    public Customer( String nameCustomer, String lastNameCustomer, int ageCustomer, Contact contact, Role role, Sex sex, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
-
-        this.nameCustomer = nameCustomer;
-        this.lastNameCustomer = lastNameCustomer;
-        this.ageCustomer = ageCustomer;
-        this.contact = contact;
-        this.role = role;
-        this.sex = sex;
-        this.accountNonExpired = accountNonExpired;
-        this.accountNonLocked = accountNonLocked;
-        this.credentialsNonExpired = credentialsNonExpired;
-        this.enabled = enabled;
-    }
-
-    public Customer(String login, String password,  String nameCustomer, String lastNameCustomer, int ageCustomer, Contact contact, Role role, Sex sex, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
-        this.login = login;
-        this.password = password;
-        this.nameCustomer = nameCustomer;
-        this.lastNameCustomer = lastNameCustomer;
-        this.ageCustomer = ageCustomer;
-        this.contact = contact;
-        this.role = role;
-        this.sex = sex;
-        this.accountNonExpired = accountNonExpired;
-        this.accountNonLocked = accountNonLocked;
-        this.credentialsNonExpired = credentialsNonExpired;
-        this.enabled = enabled;
+    public Customer(String username, String password, String firstName, String lastName, Contact contact) {
+        super(username, password, firstName, lastName, contact);
     }
 }
 

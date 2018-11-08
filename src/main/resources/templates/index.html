@@ -6,40 +6,33 @@
     <title>$Title$</title>
 </head>
 <body>
+<hr>
+<form th:action="@{/home}" method="post">
+    <input type="hidden" name="role" th:value="photo">
+    <input type="" name="username" placeholder="">
+    <input type="password" name="password" placeholder="">
+    <input type="" name="mail" placeholder="">
+    <input type="" name="name" placeholder="">
+    <input type="" name="lastName" placeholder="">
+    <input type = "submit" value="go!">
+</form>
+<p>
+    admin
+</p>
+<form th:action="@{/saveKolya}" method="post">
+    <input type="" name="username" placeholder="">
+    <input type="" name="password" placeholder="">
+    <input type="" name="number" placeholder="">
+    <input type="" name="number" placeholder="">
+    <input type="" name="number" placeholder="">
 
-
-
-<div id="left">
-   <div > <button id="savePhotograph"  ><span>PHOTOGRAPHER</span></button></div>
-</div>
-
-<div id="right">
-   <div> <button id="saveUser"><span>USER</span></button></div>
-</div>
-
-
+    <input type = "submit" value="go!">
+</form>
 </body>
-<script>
-    $("savePhotograph").click(function () {
-        let type = "P";
-        $.ajax({
-            url: '/login/Photograph',
-            type: 'Get',
-            // contentType:    що тут?
-            data: JSON.stringify({type})
-        })
-        
-    });
-    $("saveUser").click(function () {
-        let type = "U";
-        $.ajax({
-            url: '/login/Costumer',
-            type: 'Get',
-           // contentType:    що тут?
-            data: JSON.stringify({type})
 
-        })
-    })
+<SCRIPT>
+    function f() {
 
-</script>
+    }
+</SCRIPT>
 </html>

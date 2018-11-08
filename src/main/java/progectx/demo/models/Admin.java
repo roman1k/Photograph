@@ -115,7 +115,6 @@ public class Admin  implements UserDetails {
                 ", enabled=" + enabled +
                 '}';
     }
-
 }
 
 
