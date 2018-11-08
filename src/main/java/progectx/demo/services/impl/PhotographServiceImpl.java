@@ -1,13 +1,12 @@
 package progectx.demo.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import progectx.demo.DAO.ContactDao;
+import progectx.demo.DAO.ContactDAO;
 import progectx.demo.DAO.PhotographDAO;
 import progectx.demo.DAO.RatingDAO;
 import progectx.demo.models.Contact;
@@ -24,13 +23,12 @@ public class PhotographServiceImpl  implements PhotographService, UserDetailsSer
     @Autowired
     private RatingDAO ratingDAO;
     @Autowired
-    private ContactDao contactDao;
+    private ContactDAO contactDao;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return null;
     }
-
     @Override
     public void save(Photograph photograph) {
             photographDAO.save(photograph);

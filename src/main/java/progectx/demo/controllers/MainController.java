@@ -7,11 +7,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import progectx.demo.DAO.*;
-import progectx.demo.models.*;
 import progectx.demo.services.PhotographService;
 import progectx.demo.services.UserLogService;
 
@@ -24,7 +22,7 @@ public class MainController  {
     private AdminDAO adminDAO;
 
     @Autowired
-    private UserLogDao  userLogDao;
+    private UserLogDAO userLogDao;
 
     @Autowired
     @Qualifier("userlogServiceImpl")
@@ -36,22 +34,21 @@ public class MainController  {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @PostMapping("/home")
-    public  String savePhotograph(@RequestParam String role,
-                                  @RequestParam String username,
-                                  @RequestParam String password,
-                                  @RequestParam String mail,
-                                  @RequestParam String name,
-                                  @RequestParam String lastName ){
-
-        if (role.equals("photo")) {
-            photographService.save(photographService.getPhotograph(username,password, mail, name, lastName));
-        }
-        else{
-            userLogService.save(userLogService.getCustomer(username,password, mail, name, lastName));
-        }
-        return "index";
-    }
+//    @PostMapping("/home")
+//    public  String savePhotograph(@RequestParam String role,
+//                                  @RequestParam String username,
+//                                  @RequestParam String password,
+//                                  @RequestParam String mail,
+//                                  @RequestParam String name,
+//                                  @RequestParam String lastName ){
+//
+//        if (role.equals("photo")) {
+//            photographService.save(photographService.getPhotograph(username,password, mail, name, lastName));
+//        }
+//         else userLogS
+//
+//        return "index";
+//    }
 
 
 

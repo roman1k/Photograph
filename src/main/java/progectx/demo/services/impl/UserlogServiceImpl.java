@@ -20,17 +20,16 @@ public class UserlogServiceImpl implements UserLogService, UserDetailsService {
         return null;
     }
     @Autowired
-    private UserLogDao userLogDao;
+    private UserLogDAO userLogDao;
     @Autowired
     private CustomerDAO customerDAO;
     @Autowired
     private PhotographDAO photographDAO;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+
     @Autowired
     private RatingDAO ratingDAO;
     @Autowired
-    private ContactDao contactDao;
+    private ContactDAO contactDao;
 
 
     @Override
@@ -68,14 +67,14 @@ public class UserlogServiceImpl implements UserLogService, UserDetailsService {
 //        return photograph;
 //    }
 
-    @Override
-    public Customer getCustomer(String username, String password, String mail, String name, String lastName) {
-        Customer customer = new Customer(username,password);
-        customerDAO.save(customer);
-        String encode = passwordEncoder.encode(customer.getPassword());
-        Contact contact = new Contact(mail);
-        customer.setPassword(encode);
-        customer.setContact(contact);
-        return customer;
-    }
+//    @Override
+//    public Customer createCustomer(String username, String password, String mail, String name, String lastName) {
+//        Customer customer = new Customer(username,password);
+//        customerDAO.save(customer);
+//        String encode = passwordEncoder.encode(customer.getPassword());
+//        Contact contact = new Contact(mail);
+//        customer.setPassword(encode);
+//        customer.setContact(contact);
+//        return customer;
+//    }
 }
