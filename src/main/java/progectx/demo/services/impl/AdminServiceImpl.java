@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import progectx.demo.DAO.AdminDAO;
 import progectx.demo.DAO.CustomerDAO;
+import progectx.demo.DAO.GalleryDao;
 import progectx.demo.DAO.PhotographDAO;
 import progectx.demo.models.*;
 import progectx.demo.services.AdminService;
@@ -19,7 +20,10 @@ import java.util.stream.Stream;
 
 @Service
 public class AdminServiceImpl implements AdminService,UserDetailsService{
+//5. Видалити фото
 
+    @Autowired
+    private GalleryDao galleryDao;
 
     @Autowired
     private AdminDAO adminDAO;
@@ -31,54 +35,72 @@ public class AdminServiceImpl implements AdminService,UserDetailsService{
 @Autowired
 private CustomerDAO customerDAO;
 
-
+    //1. Видаляти фотографа
     @Override
     public Object DeletePhotograph(String name) {
         Stream<Photograph> allPhotographs = photographDAO.findAll().stream();
-        List<Photograph> Photograph = allPhotographs.filter(photograph1 -> photograph1.getNamePhotograph().equals(name)).collect(Collectors.toList());
+        List<Photograph> Photograph = allPhotographs.filter(photograph1 -> photograph1.getUsername().equals(name)).collect(Collectors.toList());
         return  Photograph.remove(0);
     }
 
 
-
+    //2. Видаляти кастомера
     @Override
     public Object DeleteCustomer(String name) {
         Stream<Customer> allCustomers = customerDAO.findAll().stream();
-        List<Customer> Customer = allCustomers.filter(customer -> customer.getNameCustomer().equals(name)).collect(Collectors.toList());
+        List<Customer> Customer = allCustomers.filter(customer -> customer.getUsername().equals(name)).collect(Collectors.toList());
         return  Customer.remove(0);
     }
-
+    //3. Перегляд усіх фото
     @Override
-    public List<Gallery> ShowAllPhotos() {
+    public List<Photo> ShowAllPhotos() {
         List<Photograph> AllPhotographs = photographDAO.findAll().stream().collect(Collectors.toList());
        List<List<Gallery>>AllGalleries = new ArrayList<>();
+        List<Photo>AllPhotos = new ArrayList<>();
         for (Photograph photograph:AllPhotographs) {
             List<Gallery> galleries = photograph.getGalleries();
+            for (Gallery gallerie : galleries) {
+                List<Photo> photos = gallerie.getPhotos();
+                for (Photo photo : photos) {
+                    AllPhotos.add(photo);
+                }
+
+            }
+
             AllGalleries.add(galleries);
 
         }
+        return AllPhotos;
+    }
+
+    //4. Писати лист на пошту
+    @Override
+    public String WriteListToEmail(String List) {
+
         return null;
     }
 
-    @Override
-    public String VriteListToEmail(String List) {
-        return null;
-    }
 
-    @Override
-    public String DeletePhoto(Gallery gallery) {
-        return null;
-    }
 
+    //6. Видалити  хештеги ???????????????????????????
     @Override
-    public String DeleteHashtag(Gallery gallery) {
-        return null;
+    public void DeleteHashtag(String name) {
+        List<Gallery> galleries = galleryDao.findAll();
+        List<Gallery> collect = galleries.stream().filter(gallery -> gallery.getHashTag().equals(name)).collect(Collectors.toList());
+        Gallery gallery = collect.get(0);
+        gallery.setHashTag(null);
+        galleryDao.save(gallery);
     }
+    //7. Видалити фото аватарку
+    @Override
+    public void DeletePhotoAvatar(String name) {
+        List<Photograph> all = photographDAO.findAll();
+        Stream<Photograph> photographStream = all.stream().filter(photograph -> photograph.getUsername().equals(name));
+        List<Photograph> photographsWhoHasThisAvatar = photographStream.collect(Collectors.toList());
+        Photograph photograph = photographsWhoHasThisAvatar.get(0);
+        photograph.setAvatar(null);
+        photographDAO.save(photograph);}
 
-    @Override
-    public String DeletePhotoAvatar(Gallery gallery) {
-        return null;
-    }
 
     @Override
     public void save(Admin admin) {
