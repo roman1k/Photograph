@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import progectx.demo.DAO.*;
 import progectx.demo.models.*;
 import progectx.demo.services.PhotographService;
@@ -51,6 +52,22 @@ public class MainController  {
             userLogService.save(userLogService.getCustomer(username,password, mail, name, lastName));
         }
         return "index";
+    }
+
+    @PostMapping("/setingsPhotographer")
+    public String setingsphotograph(
+            @RequestParam MultipartFile avatar,
+            @RequestParam String namePhotograph,
+            @RequestParam String lastNamePhotograph,
+            @RequestParam int agePhotograph,
+            @RequestParam Sex sex,
+            @RequestParam Contact contact,
+            @RequestParam String describe,
+            @RequestParam int price,
+            @RequestParam String hashTag
+    ){
+        Photograph photograph
+        return null;
     }
 
 

@@ -6,9 +6,9 @@
 </head>
 <body>
 
-<form id="regOFphotograph" th:action="/savePhotographer" method="post">
+<form id="regOFphotograph" th:action="/savePhotographer"  method="post" enctype="multipart/form-data">
     <div>
-        <input type = "file" name = "profileImage" placeholder="додати аватарку ">
+        <input type = "file" name = "avatar" placeholder="додати аватарку "  th:value="${}">
     </div>
     <div>
         <input type="text" name="namePhotograph" placeholder="ім'я">
@@ -47,7 +47,7 @@
 
 
     <div>
-        <input type="text" name="describe" placeholder="опис">
+        <input type="text" name="description" placeholder="опис">
     </div>
     <div>
         <input type="number" name="price" placeholder="ціна за годину роботи">
@@ -57,7 +57,11 @@
     </div>
     <div>
         <!--Gallary-->
-        <input>
+        <input type="text" name="nameGallery" placeholder="ім'я галереї">
+        <input type="text" name="hashTag" placeholder="хештег">
+        <input type="file" placeholder="додайте файл" multiple />
+        <input type="submit">
+
     </div>
     <button id="#btn">надіслати</button>>
 
