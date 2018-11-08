@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 @Entity
 @Data
@@ -17,7 +18,7 @@ public class Gallery {
         private  String nameGallery;
         private String hashTag;
         @OneToMany
-        private List<Photo> photos;
+        private List<Photo> photos = new ArrayList<Photo>();
 
     public Gallery( String nameGallery, String hashTag, List<Photo> photos) {
         this.nameGallery = nameGallery;
