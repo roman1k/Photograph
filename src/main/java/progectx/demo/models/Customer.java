@@ -13,9 +13,17 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-
+@Data
 @Entity
 public class Customer  extends UserLog {
+    public Customer(UserLog userLog, Role role) {
+        this.userLog = userLog;
+        this.role = role;
+    }
+
+    public Customer() {
+    }
+
     @OneToOne(optional = false)
     @JoinColumn(name = "id", unique = true, nullable = false, updatable = false)
     private  UserLog userLog;

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import progectx.demo.DAO.*;
 import progectx.demo.models.*;
 import progectx.demo.services.AdminService;
+import progectx.demo.services.CustumerServise;
 import progectx.demo.services.PhotographService;
 import progectx.demo.services.UserLogService;
 
@@ -34,7 +35,9 @@ public class MainController  {
     @Autowired
     @Qualifier("adminServiceImpl")
     private AdminService adminService;
-
+    @Autowired
+    @Qualifier("custumerServiseImpl")
+    private CustumerServise custumerServise;
     @Autowired
     @Qualifier("photographServiceImpl")
     private PhotographService photographService;
@@ -89,6 +92,12 @@ public class MainController  {
     @PostMapping("/a")
     public String a(@RequestParam String name){
         adminService.DeletePhotograph(name);
+        return "kolya";
+    }
+    //admin delete customer
+    @PostMapping("/b")
+    public String b(@RequestParam String name){
+        adminService.DeleteCustomer(name);
         return "kolya";
     }
 
