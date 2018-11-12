@@ -1,6 +1,7 @@
 package progectx.demo.models;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,6 +15,9 @@ import java.util.List;
 @Data
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class UserLog implements UserDetails {
+    public UserLog() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;

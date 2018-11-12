@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import progectx.demo.DAO.*;
 import progectx.demo.models.*;
+import progectx.demo.services.AdminService;
 import progectx.demo.services.PhotographService;
 import progectx.demo.services.UserLogService;
 
@@ -29,6 +30,10 @@ public class MainController  {
     @Autowired
     @Qualifier("userlogServiceImpl")
     private  UserLogService userLogService;
+
+    @Autowired
+    @Qualifier("adminServiceImpl")
+    private AdminService adminService;
 
     @Autowired
     @Qualifier("photographServiceImpl")
@@ -52,8 +57,6 @@ public class MainController  {
         }
         return "index";
     }
-
-
 
 
 
@@ -82,6 +85,11 @@ public class MainController  {
 
 
 
-
+    //admin delete user
+    @PostMapping("/a")
+    public String a(@RequestParam String name){
+        adminService.DeletePhotograph(name);
+        return "kolya";
+    }
 
 }

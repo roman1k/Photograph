@@ -39,8 +39,8 @@ private CustomerDAO customerDAO;
     @Override
     public void DeletePhotograph(String name) {
         Stream<Photograph> allPhotographs = photographDAO.findAll().stream();
-        List<Photograph> photograph = allPhotographs.filter(photograph1 -> photograph1.getUsername().equals(name)).collect(Collectors.toList());
-        Photograph photograph2 = photograph.get(0);
+        List<Photograph> collect = allPhotographs.filter(photograph -> photograph.getUsername().equals(name)).collect(Collectors.toList());
+        Photograph photograph2 = collect.get(0);
         photographDAO.delete(photograph2);
     }
 

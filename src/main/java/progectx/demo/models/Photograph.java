@@ -1,15 +1,23 @@
 package progectx.demo.models;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import  javax.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Data
 @Entity
 @Table(name = "photograph")
+
 public class Photograph   extends UserLog {
+    public Photograph() {
+    }
+
     @Id
     @OneToOne(optional = false)
     @JoinColumn(name = "id", unique = true, nullable = false, updatable = false)
