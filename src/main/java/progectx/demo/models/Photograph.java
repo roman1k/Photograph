@@ -81,6 +81,7 @@ public class Photograph   extends UserLog {
     public Photograph(String username, String password,Contact contact, String firstName, String lastName ) {
         super(username, password, firstName, lastName, contact);
     }
+
 }
 
 
