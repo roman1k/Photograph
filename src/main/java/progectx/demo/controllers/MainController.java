@@ -13,6 +13,8 @@ import progectx.demo.DAO.*;
 import progectx.demo.services.PhotographService;
 import progectx.demo.services.UserLogService;
 
+import java.io.File;
+
 @Controller
 public class MainController  {
     @Autowired
@@ -33,6 +35,9 @@ public class MainController  {
     private PhotographService photographService;
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+
+
 
 //    @PostMapping("/home")
 //    public  String savePhotograph(@RequestParam String role,

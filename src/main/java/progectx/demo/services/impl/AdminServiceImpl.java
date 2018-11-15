@@ -7,7 +7,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import progectx.demo.DAO.AdminDAO;
 import progectx.demo.DAO.CustomerDAO;
-import progectx.demo.DAO.GalleryDao;
+
+import progectx.demo.DAO.GalleryDAO;
 import progectx.demo.DAO.PhotographDAO;
 import progectx.demo.models.*;
 import progectx.demo.services.AdminService;
@@ -23,7 +24,7 @@ public class AdminServiceImpl implements AdminService,UserDetailsService{
 //5. Видалити фото
 
     @Autowired
-    private GalleryDao galleryDao;
+    private GalleryDAO galleryDao;
 
     @Autowired
     private AdminDAO adminDAO;
