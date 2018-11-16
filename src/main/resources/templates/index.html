@@ -24,27 +24,27 @@
 
 
 </body>
-<!--<script>-->
-    <!--$("savePhotograph").click(function () {-->
-        <!--let type = "P";-->
-        <!--$.ajax({-->
-            <!--url: '/login/Photograph',-->
-            <!--type: 'Get',-->
-            <!--// contentType:    що тут?-->
-            <!--data: JSON.stringify({type})-->
-        <!--})-->
+<script>
+    $("#savePhotograph").click(function () {
+        let type = "P";
+        $.ajax({
+            url: '/login/Photograph',
+            type: 'Get',
+            // contentType:    що тут?
+            data: JSON.stringify({type})
+        })
 
-    <!--});-->
-    <!--$("saveUser").click(function () {-->
-        <!--let type = "U";-->
-        <!--$.ajax({-->
-            <!--url: '/login/Costumer',-->
-            <!--type: 'Get',-->
-            <!--// contentType:    що тут?-->
-            <!--data: JSON.stringify({type})-->
+    });
+    $("#saveUser").click(function () {
+        let type = "U";
+        $.ajax({
+            url: '/login/Costumer',
+            type: 'Get',
+            // contentType:    що тут?
+            data: JSON.stringify({type})
 
-        <!--})-->
-    <!--})-->
+        })
+    })
 
-<!--</script>-->
+</script>
 </html>
