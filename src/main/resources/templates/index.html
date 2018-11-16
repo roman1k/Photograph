@@ -10,41 +10,42 @@
 <body>
 
 
-
-
-
-
 <div id="left">
-    <div > <button id="savePhotograph"  ><span>PHOTOGRAPHER</span></button></div>
+    <div > <a th:href="@{'login/photo'}">
+        <button id="savePhotograph"  ><span>PHOTOGRAPHER</span></button>
+    </a>
+    </div>
 </div>
 
 <div id="right">
+    <a th:href="@{'login/user'}">
     <div> <button id="saveUser"><span>USER</span></button></div>
+    </a>
 </div>
 
 
 </body>
-<script>
-    $("#savePhotograph").click(function () {
-        let type = "P";
-        $.ajax({
-            url: '/login/Photograph',
-            type: 'Get',
-            // contentType:    що тут?
-            data: JSON.stringify({type})
-        })
+<!--<script>-->
+    <!--$("#savePhotograph").click(function () {-->
+        <!--let type = "P";-->
+        <!--$.ajax({-->
+            <!--url: '/login/Photograph',-->
+            <!--type: 'Get',-->
+            <!--// contentType:    що тут?-->
+            <!--data: JSON.stringify({type})-->
+        <!--})-->
 
-    });
-    $("#saveUser").click(function () {
-        let type = "U";
-        $.ajax({
-            url: '/login/Costumer',
-            type: 'Get',
-            // contentType:    що тут?
-            data: JSON.stringify({type})
+    <!--});-->
+    <!--$("#saveUser").click(function () {-->
+        <!--let type = "U";-->
+        <!--$.ajax({-->
+            <!--url: '/login/Costumer',-->
+            <!--type: 'Get',-->
+            <!--// contentType:    що тут?-->
+            <!--data: JSON.stringify({type})-->
 
-        })
-    })
+        <!--})-->
+    <!--})-->
 
-</script>
+<!--</script>-->
 </html>
