@@ -32,7 +32,7 @@ public class Security extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()//авторизовує всі реквести(запити)
-                .antMatchers("/","main","login1", "/home", "/saveCustomer", "/userFound","/savePhotographer",  "/login/**", "/css/**" , "/images/**","/saveUserLog","/CustomerProfile/").permitAll()//на ці запити переходить будь хто
+                .antMatchers("/","main", "/home", "/saveCustomer", "/userFound","/savePhotographer", "/css/**" , "/images/**","/saveUserLog","/CustomerProfile/").permitAll()//на ці запити переходить будь хто
                 .anyRequest().authenticated()//на всі інші тільки аутентифіковані
                 .antMatchers("/admin/**").hasRole("ADMIN")//тільки адмін на такі
                 .and()
