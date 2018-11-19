@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    outline: none;
+    height: auto;
+
+}
+
+body{
+    overflow:hidden;
+    overflow-y:hidden;  /*для вертикального*/
+    overflow-x:hidden;  /*для горизонтального*/
+    background: #bbc4ce;
+
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+
+    overflow: scroll;
+}
+.p-top-10{
+    padding-top: 10%;
+}
+
+.inputs-style{
+    padding-top: 15px;
+
+
+}
+
+input {
+    height: 2.5em; /* for IE */
+    vertical-align: middle; /* This is optional but it makes legacy IEs look better */
+}
+
+textarea {
+    width: 80%;
+    height: 120px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+
+    border: 1px solid #4195fc; /* some kind of blue border */
+
+    /* other CSS styles */
+
+    /* round the corners */
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+
+
+    /* make it glow! */
+    -webkit-box-shadow: 0px 0px 4px #4195fc;
+    -moz-box-shadow: 0px 0px 4px #4195fc;
+    box-shadow: 0px 0px 4px #4195fc;
+
+
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+
+
+
+input {
+    border: 1px solid #4195fc; /* some kind of blue border */
+
+    /* other CSS styles */
+
+    /* round the corners */
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+
+
+    /* make it glow! */
+    -webkit-box-shadow: 0px 0px 4px #4195fc;
+    -moz-box-shadow: 0px 0px 4px #4195fc;
+    box-shadow: 0px 0px 4px #4195fc; /* some variation of blue for the shadow */
+
+}
+
+
+.avatar{
+    max-width: 300px;
+    height: 300px;
+
+}
+
+label{
+    padding: 10px;
+    background: hotpink;
+    display: table;
+    color: #fff;
+}
+
+
+
+#file-galery{
+    display: none;
+    size: 60px;
+}
+
+#file-avatar{
+    display: none;
+    size: 60px;
+}
+#save{
+    display: none;
+    size: 60px;
+}
+#save-label{
+    padding: 10px;
+    background: green;
+    display: table;
+    color: #fff;
+}
+
+
