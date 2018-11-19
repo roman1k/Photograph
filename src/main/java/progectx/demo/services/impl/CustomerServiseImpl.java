@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import progectx.demo.DAO.ContactDAO;
 import progectx.demo.DAO.CustomerDAO;
 import progectx.demo.DAO.PhotographDAO;
 import progectx.demo.DAO.RatingDAO;
@@ -27,6 +28,8 @@ public class CustomerServiseImpl implements CustomerServise, UserDetailsService 
     private PhotographDAO photographDAO;
     @Autowired
     private RatingDAO ratingDAO;
+    @Autowired
+    private ContactDAO contactDAO;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return customerDAO.findByUsername(username);
@@ -40,12 +43,16 @@ public class CustomerServiseImpl implements CustomerServise, UserDetailsService 
 
     @Override
     public Customer createCustomer(String username, String password, String mail, String name, String lastName) {
-        Customer customer = new Customer(username,password);
-        customerDAO.save(customer);
-        String encode = passwordEncoder.encode(customer.getPassword());
+
         Contact contact = new Contact(mail);
+        contactDAO.save(contact);
+        Customer customer = new Customer(username,password);
+        String encode = passwordEncoder.encode(customer.getPassword());
         customer.setPassword(encode);
         customer.setContact(contact);
+        customer.setLastName(lastName);
+        customer.setFirstName(name);
+        customerDAO.save(customer);
         return customer;
     }
 
