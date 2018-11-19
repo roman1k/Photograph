@@ -11,16 +11,16 @@ import progectx.demo.models.*;
 
 import progectx.demo.services.UserLogService;
 
+import java.net.URLEncoder;
 
 
 @Service
-public class UserlogServiceImpl implements UserLogService, UserDetailsService {
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
-    }
+public class UserlogServiceImpl implements UserLogService {
     @Autowired
-    private UserLogDAO userLogDao;
+    private  UserLogDAO userLogDAO;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Autowired
     private CustomerDAO customerDAO;
     @Autowired
@@ -30,25 +30,31 @@ public class UserlogServiceImpl implements UserLogService, UserDetailsService {
     private RatingDAO ratingDAO;
     @Autowired
     private ContactDAO contactDao;
-
-
     @Override
-    public void save(Photograph photograph)
-    {
-        photographDAO.save(photograph);
-        System.out.println(5);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        UserLog byUsername = userLogDAO.findByUsername(username);
+        System.out.println(byUsername + " found USER!!!!!!!!!!!");
+        return byUsername;
     }
 
-    @Override
-    public void save(Admin admin){
-
-    }
-
-    @Override
-    public void save(Customer customer)
-    {
-        customerDAO.save(customer);
-    }
+//
+//    @Override
+//    public void save(Photograph photograph)
+//    {
+//        photographDAO.save(photograph);
+//        System.out.println(5);
+//    }
+//
+//    @Override
+//    public void save(Admin admin){
+//
+//    }
+//
+//    @Override
+//    public void save(Customer customer)
+//    {
+//        customerDAO.save(customer);
+//    }
 
 //    @Override
 //    public Photograph getPhotograph(String username, String password, String mail, String name, String lastName){
@@ -67,14 +73,23 @@ public class UserlogServiceImpl implements UserLogService, UserDetailsService {
 //        return photograph;
 //    }
 
-//    @Override
-//    public Customer createCustomer(String username, String password, String mail, String name, String lastName) {
-//        Customer customer = new Customer(username,password);
-//        customerDAO.save(customer);
-//        String encode = passwordEncoder.encode(customer.getPassword());
-//        Contact contact = new Contact(mail);
-//        customer.setPassword(encode);
-//        customer.setContact(contact);
-//        return customer;
-//    }
+    @Override
+    public void save(UserLog userLog) {
+        userLogDAO.save(userLog);
+    }
+
+    @Override
+    public UserLog  createCustomer(String username, String password, String mail, String name, String lastName) {
+
+        Contact contact = new Contact(mail);
+        contactDao.save(contact);
+       UserLog userLog = new UserLog(username,password);
+        String encode = passwordEncoder.encode(userLog.getPassword());
+        userLog.setPassword(encode);
+        userLog.setContact(contact);
+       userLog.setLastName(lastName);
+        userLog.setFirstName(name);
+        userLogDAO.save(userLog);
+        return userLog;
+    }
 }

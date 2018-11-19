@@ -1,6 +1,7 @@
 package progectx.demo.models;
 
 import lombok.Data;
+import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,22 +14,52 @@ import java.util.List;
 @Entity
 @Data
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class UserLog implements UserDetails {
+public class UserLog implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;
-    @Column(unique = true)
+    @Column(name = "username", unique = true)
     private String username;
     private String password;
     private String firstName;
     private String lastName;
-    private Role role;
+    @Enumerated(EnumType.STRING)
+    private Role role = Role.ROLE_USER;
     @OneToOne(optional = false, fetch = FetchType.EAGER,cascade=CascadeType.ALL)
     private Contact contact;
     private boolean accountNonLocked = true;
     private boolean accountNonExpired = true;
     private boolean credentialsNonExpired = true;
     private boolean enabled = true;
+
+    public int getId() {
+        return id;
+    }
+
+
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public UserLog() {
+    }
 
     public UserLog(String username, String password) {
         this.username = username;
@@ -111,5 +142,13 @@ public abstract class UserLog implements UserDetails {
     @Override
     public boolean isEnabled() {
         return enabled;
+    }
+
+    @Override
+    public String toString() {
+        return "UserLog{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

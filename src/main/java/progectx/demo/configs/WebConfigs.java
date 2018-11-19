@@ -11,7 +11,7 @@ public class WebConfigs  implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         //get method
-        registry.addViewController("/login").setViewName("login");//коли яя формую урло логін то я повинен створити сторінку хтмл логін
+        registry.addViewController("/login").setViewName("/login");//коли яя формую урло логін то я повинен створити сторінку хтмл логін
     }
 
     @Override

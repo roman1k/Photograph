@@ -14,7 +14,7 @@ public class Photograph   extends UserLog {
     @OneToOne(optional = false)
     @JoinColumn(name = "id", unique = true, nullable = false, updatable = false)
     private UserLog userLog;
-    private Role role = Role.ROLE_Photograph;
+    private Role role = Role.ROLE_USER;
     @OneToMany
     private List<Gallery> galleries = new ArrayList<>();
     @OneToOne
@@ -73,6 +73,8 @@ public class Photograph   extends UserLog {
         this.sex = sex;
     }
 
+    public Photograph() {
+    }
 
     public Photograph(String username, String password) {
         super(username, password);
@@ -82,6 +84,13 @@ public class Photograph   extends UserLog {
         super(username, password, firstName, lastName, contact);
     }
 
+    @Override
+    public String toString() {
+        return "Photograph{" +
+                getFirstName() +
+                getRole() +
+                  '}';
+    }
 }
 
 

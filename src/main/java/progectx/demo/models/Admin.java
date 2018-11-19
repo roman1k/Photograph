@@ -12,7 +12,7 @@ public class Admin  extends UserLog {
     @OneToOne(optional = false)
     @JoinColumn(name = "id", unique = true, nullable = false, updatable = false)
     private int id;
-    Role role = Role.ROLE_Admin;
+    Role role = Role.ROLE_ADMIN;
 
     public Admin(String username, String password) {
         super(username, password);
