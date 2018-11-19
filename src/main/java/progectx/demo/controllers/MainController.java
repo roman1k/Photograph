@@ -22,31 +22,7 @@ public class MainController  {
     @Autowired
     private AdminDAO adminDAO;
 
-    @Autowired
-    private UserLogDao  userLogDao;
 
-    @Autowired
-    @Qualifier("userlogServiceImpl")
-    private  UserLogService userLogService;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @PostMapping("/home")
-    public  String savePhotograph(@RequestParam String role,
-                                  @RequestParam String username,
-                                  @RequestParam String password,
-                                  @RequestParam String mail,
-                                  @RequestParam String name,
-                                  @RequestParam String lastName ){
-
-        if (role.equals("photo")) {
-            userLogService.save(userLogService.getPhotograph(username,password, mail, name, lastName));
-        }
-        else{
-            userLogService.save(userLogService.getCustomer(username,password, mail, name, lastName));
-        }
-        return "main";
-    }
 
 
 

@@ -3,6 +3,7 @@ package progectx.demo.models;
 
 import  javax.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -15,7 +16,7 @@ public class Photograph   extends UserLog {
     private UserLog userLog;
     private Role role = Role.ROLE_Photograph;
     @OneToMany
-    private List<Gallery> galleries;
+    private List<Gallery> galleries = new ArrayList<>();
     @OneToOne
     private  Rating rating;
     private Sex sex;
@@ -72,13 +73,16 @@ public class Photograph   extends UserLog {
         this.sex = sex;
     }
 
+
     public Photograph(String username, String password) {
         super(username, password);
     }
 
-    public Photograph(String username, String password, String firstName, String lastName, Contact contact) {
+    public Photograph(String username, String password,Contact contact, String firstName, String lastName ) {
         super(username, password, firstName, lastName, contact);
     }
+
 }
+
 
 

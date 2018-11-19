@@ -13,9 +13,9 @@ public interface UserLogService  {
     void  save(Admin admin);
     void  save (Customer customer);
 
-    Photograph getPhotograph(String username, String password, String mail, String name, String lastName);
+//    Photograph getPhotograph(String username, String password, String mail, String name, String lastName);
 
-    Customer getCustomer(String username, String password, String mail, String name, String lastName);
+//    Customer getCustomer(String username, String password, String mail, String name, String lastName);
 
 
 }
