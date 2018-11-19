@@ -25,6 +25,7 @@ public abstract class UserLog implements UserDetails {
     private String password;
     private String firstName;
     private String lastName;
+    @Enumerated(EnumType.STRING)
     private Role role;
     @OneToOne(optional = false, fetch = FetchType.EAGER,cascade=CascadeType.ALL)
     private Contact contact;
@@ -45,6 +46,10 @@ public abstract class UserLog implements UserDetails {
         this.lastName = lastName;
 
         this.contact = contact;
+    }
+
+    public Role getRole() {
+        return role;
     }
 
     public void setPassword(String password) {

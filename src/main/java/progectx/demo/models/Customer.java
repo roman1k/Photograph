@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-@Data
 @Entity
 public class Customer  extends UserLog {
     public Customer(UserLog userLog, Role role) {
@@ -36,6 +35,15 @@ public class Customer  extends UserLog {
 
     public Customer(String username, String password, String firstName, String lastName, Contact contact) {
         super(username, password, firstName, lastName, contact);
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                getUsername()+
+//                "userLog=" + userLog +
+                ", role=" + role +
+                '}';
     }
 }
 

@@ -5,5 +5,5 @@ import org.springframework.security.core.userdetails.UserDetails;
 import progectx.demo.models.UserLog;
 
 public interface UserLogDao extends JpaRepository<UserLog, Integer> {
-    UserDetails findByUsername(String username);
+    UserLog  findByUsername(String username);
 }

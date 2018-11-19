@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import progectx.demo.models.Customer;
 
 public interface CustomerDAO extends JpaRepository<Customer, Integer> , JpaSpecificationExecutor<Customer>{
-
+Customer findByUsername(String userName);
 
 
 

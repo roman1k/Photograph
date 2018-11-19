@@ -17,7 +17,7 @@ import progectx.demo.services.UserLogService;
 public class UserlogServiceImpl implements UserLogService, UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
+        return userLogDao.findByUsername(username);
     }
     @Autowired
     private UserLogDao userLogDao;

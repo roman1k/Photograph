@@ -28,7 +28,7 @@ public class PhotographServiceImpl  implements PhotographService, UserDetailsSer
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
+        return  photographDAO.findByUsername(username);
     }
 
     @Override
