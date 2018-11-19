@@ -2,6 +2,8 @@ body{
     overflow:hidden;
     overflow-y:hidden;  /*для вертикального*/
     overflow-x:hidden;  /*для горизонтального*/
+
+
 }
 #left {
     position: absolute; left: 0; top: 0; width: 50%;height: 100%;
@@ -21,10 +23,6 @@ body{
     -o-filter: blur(4px);
     -ms-filter: blur(4px);
     filter: blur(4px);
-
-
-
-
 
 }
 #left:hover{
@@ -114,7 +112,6 @@ body{
     height: 100vh;
 }
 button{
-    outline: none;
     display: inline-block;
     position: relative;
     background: none;
@@ -221,11 +218,10 @@ button:hover span::before, button:hover span::after{
 
 #savePhotograph,#saveUser{
 
+    outline: none;
     margin: auto;
     position: absolute;
-     left: 25%; bottom: 50%;
+    left: 25%; bottom: 50%;
     text-align: center;
 
- }
-
-
+}

@@ -15,7 +15,7 @@ input ,button{
 
 body{
 
-    background: url("../images/green-city-gandhinagar-portal-bg-11-1.jpg") center center fixed;
+    background: white center center fixed;
 }
 
 .main{
@@ -26,7 +26,8 @@ body{
     display: flex;
     flex-direction: column;
     padding-bottom: -10px;
-    background-image: linear-gradient(to bottom right,#05203e, #366056);
+
+    background: rgba(233, 168, 40, 0.6);
 }
 
 
@@ -72,7 +73,8 @@ input{
     height: 300px;
     display: flex;
     justify-content: center;
-    background-image: linear-gradient(to bottom right, #366056,#05203e);
+
+
 }
 
 .btn-wrp input,.btn-wrp button{

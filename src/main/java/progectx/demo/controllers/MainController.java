@@ -45,7 +45,7 @@ public class MainController  {
         else{
             userLogService.save(userLogService.getCustomer(username,password, mail, name, lastName));
         }
-        return "index";
+        return "main";
     }
 
 
@@ -73,6 +73,11 @@ public class MainController  {
     public  String photographprofile(Model model){
         System.out.println("profile");
         return "PhotographProfie";
+    }
+
+    @GetMapping("/signin")
+    public String signin(){
+        return "main";
     }
 
 
